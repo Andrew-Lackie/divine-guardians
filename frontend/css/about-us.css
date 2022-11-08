@@ -249,7 +249,11 @@ a .action-button {
   -ms-transform: translate(0, -50%);
   transform: translate(0, -50%);
 }
-8
+
+.about-container {
+	color: #d3d2cf;
+}
+
 .container {
 	height: auto;
 	width: auto;
@@ -257,10 +261,6 @@ a .action-button {
 	padding-bottom: 5%;
 	padding-left: 10%;
 	border-radius: 15px;
-}
-
-#right-container {
-	margin-left: 10%;
 }
 
 #left-container {

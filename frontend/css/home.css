@@ -277,6 +277,7 @@ body {
 	margin-right: 5%;
 	margin-left: 5%;
 	transform: translateY(-50%);
+	color: #d3d2cf;
 }
 
 #learn-more {
@@ -373,9 +374,19 @@ form.search i {
 	height: auto;
 }
 
+.action-container {
+	display: flex;
+	justify-content: center;
+	text-align: center;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	width: 94%;
+	height: auto;
+}
+
 .course-container {
 	text-align: center;
-	width: 30%;
+	width: 25%;
 	height: auto;
 	margin-top: 5%;
 }
@@ -384,16 +395,16 @@ form.search i {
 	text-align: center;
 	width: 3%;
 	height: auto;
-	margin: 0 auto;
 }
 
 .chevron-container button {
 	border: none;
 	border-radius: 50%;
 	background: #3d3d3d;
+	color: #FFFFFF;
 	position: relative;
   top: 50%;
-  left: 50%;
+	cursor: pointer;
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
@@ -419,26 +430,25 @@ form.search i {
 	padding: 10px;
 }
 
+.course-container img {
+	width: 75%;
+	height: auto;
+	border-radius: 15px;
+}
+
 #button-left-container button {
+  left: 50%;
 }
 
 #courses-left-container img {
-	width: 75%;
-	height: auto;
 	margin-left: 10%;
-	border-radius: 15px;
 }
 
 #courses-middle-container img {
-	width: 75%;
-	height: auto;
-	border-radius: 15px;
 }
 
 #courses-right-container img {
-	width: 75%;
-	height: auto;
-	border-radius: 15px;
+	margin-right: 5%;
 }
 
 #button-right-container button {
@@ -457,6 +467,7 @@ form.search i {
 	height: 45px;
 	background: #333333; 
 	border: solid;
+	color: #d3d2cf;
 	border-radius: 30px;
 	border-width: 2px;
 	border-color: #FFCF8D;
