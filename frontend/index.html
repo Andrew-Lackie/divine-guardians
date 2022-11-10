@@ -14,6 +14,9 @@
 <body>
 
 	<section class="header">
+
+		<!--Menu-->
+
 		<nav>
 			<div class="nav-links">
 
@@ -91,6 +94,8 @@
 			</div>
 		</nav>
 
+		<!--Logo-->
+
 		<img src="images/chess.jpg" alt="Chess">
 
 		<div class="logo">
@@ -132,6 +137,8 @@
 				<h2 class="title">Who We Are</h2>
 			</div>
 		</div>
+
+		<!--about-->
 
 		<div class="about-container">
 			
@@ -186,7 +193,8 @@
 
 		</div>
 
-		<!-- The form -->
+		<!--The form-->
+		
 		<div class="button-wrapper">
 			<form class="search" action="#">
 				<input type="text" placeholder="Search for courses..." name="search">
@@ -194,41 +202,43 @@
 			</form>
 		</div>
 
+		<!--courses-->
+
 		<div class="parent-container" id="course-parent-container">
 
 			<div class="chevron-container" id="button-left-container">
-				<button onclick="menuForward()"><i class="fa-solid fa-chevron-left"></i></button>
+				<button ><i class="fa-solid fa-chevron-left"></i></button>
 			</div>
 
-			<div class="action-container">
+			<div class="action-container" id="course-action-container">
 
 				<div class="course-container" id="courses-left-container">
 					
-					<img src="images/contract.jpg" alt="Contract">
-					<h3>Contract Law</h3>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+					<img src="" id="left-img">
+					<h3 id="left-header"></h3>
+					<p id="left-paragraph"></p>
 				
 				</div>
 			
 				<div class="course-container" id="courses-middle-container">
 
-					<img src="images/dictionary.jpg" alt="Dictionary">
-					<h3>Dictionaries</h3>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+					<img src="" alt="Dictionary" id="middle-img">
+					<h3 id="middle-header"></h3>
+					<p id="middle-paragraph"></p>
 
 				</div>
 			
 				<div class="course-container" id="courses-right-container">
 
-					<img src="images/estate.jpg" alt="Estate">
-					<h3>Estates</h3>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+					<img src="" alt="Estate" id="right-img">
+					<h3 id="right-header"></h3>
+					<p id="right-paragraph"></p>
 
 				</div>
 
 			</div>
 			<div class="chevron-container" id="button-right-container">
-				<button onclick="menuBackwards()"><i class="fa-solid fa-chevron-right"></i></button>
+				<button ><i class="fa-solid fa-chevron-right"></i></button>
 			</div>
 
 		</div>
@@ -243,6 +253,8 @@
 
 				
 		</div>
+
+		<!--membership-->
 
 		<div class="membership-container">
 
@@ -312,12 +324,14 @@
 
 	</section>
 
+	<!--footer-->
+
 	<section class="footer">
 		<div class="cream-rectangle" id="cream-rectangle-3">
 		</div>
 
 	</section>
 
-	<script src="js/menu.js"></script>
+	<script src="js/index.js"></script>
 </body>
 </html>
