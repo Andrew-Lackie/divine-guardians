@@ -3,19 +3,16 @@
 }
 
 body {
-	background-color: #333333;
+	background-color: #2F3135;
 }
 
 .header {
-	position: relative;
 	text-align: center;
-	display: block;
-}
-
-.header img {
-	width: 100%;
-	height: auto;
-	filter: brightness(50%);
+	width: 100vw;
+	height: 100vh;
+	background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(../images/chess.jpg);
+	background-position: center;
+	background-size: cover;
 }
 
 .nav-links ul {
@@ -141,20 +138,15 @@ body {
 } 
 
 #join {
-  padding: 12px 32px;
-	background-color: #82C836;
-	border-color: #82C836;
-  color: #333333;
-}
-
-#join {
+  padding: 15px 32px;
+	background: linear-gradient(to right, #0091FE,  #82C836);
+	border: none;
 	text-decoration: none;
-  color: #333333;
+  color: #2F3135;
 }
 
 #join:hover {
-	background-color: rgba(130, 200, 54, 0.5);
-	border-color: rgba(130, 200, 54, 0.5);
+	background: linear-gradient(to right, rgba(0, 145, 254, 0.5),  rgba(130, 200, 54, 0.5));
 }
 
 #login {
@@ -173,6 +165,7 @@ body {
 }
 
 .rectangle {
+	position: relative;
 	width: 100%;
 }
 
@@ -194,7 +187,7 @@ body {
 	font-family: 'Merriweather', serif;
 	font-weight: 400;
 	font-size: 2em;
-	background-color: #333333;
+	background-color: #2F3135;
 	color: #FFCF8D;
 }
 
@@ -204,13 +197,13 @@ body {
 
 #cream-rectangle-1 {
 	text-align: center;
-	height: 400px;
+	height: 600px;
 	background-color: #FFCF8D;
 }
 
 #cream-rectangle-1 video {
 	justify-content: center;
-	height: 400px;
+	height: 600px;
 	width: auto;
 }
 
@@ -224,7 +217,7 @@ body {
 	font-family: 'Roboto Serif', serif;
 	font-weight: 700;
 	font-size: 1.5em;
-	background-color: #333333;
+	background-color: #2F3135;
 	color: #FFFFFF;
 	padding-top: 60px;
 	padding-bottom: 30px;
@@ -348,7 +341,7 @@ form.search input[type=text] {
 	height: 40px;
   font-family: 'Roboto', sans-serif;
 	font-size: 15px;
-	background: #333333; 
+	background: #2F3135; 
 	color: #C7C7C7;
 	border: none;
 	outline: none;
@@ -357,7 +350,7 @@ form.search input[type=text] {
 form.search button {
 	width: 20px;
 	border: none;
-	background: #333333;
+	background: #2F3135;
 }
 
 form.search i {
@@ -372,6 +365,7 @@ form.search i {
 	flex-wrap: wrap;
 	width: 100%;
 	height: auto;
+	margin-top: 3%;
 }
 
 .action-container {
@@ -381,14 +375,42 @@ form.search i {
 	flex-direction: row;
 	flex-wrap: nowrap;
 	width: 94%;
-	height: auto;
+	height: 100%;
 }
 
 .course-container {
 	text-align: center;
-	width: 25%;
-	height: auto;
-	margin-top: 5%;
+	border-radius: 5px;
+	width: 24%;
+	height: 109%;
+	padding-top: 6%;
+	padding-left: 3%;
+	padding-right: 3%;
+	padding-bottom: 1%;
+	margin: 1%;
+	background-color: #C7c7c7;
+	box-shadow: 1px 1px 3px #c7c7c7;
+}
+
+#courses-left-container:hover {
+	margin: 0;
+	width: 26%;
+	height: 100%;
+	box-shadow: 2px 2px 3px #c7c7c7;
+}
+
+#courses-middle-container:hover {
+	margin: 0;
+	width: 26%;
+	height: 100%;
+	box-shadow: 2px 2px 3px #c7c7c7;
+}
+
+#courses-right-container:hover {
+	margin: 0;
+	width: 26%;
+	height: 100%;
+	box-shadow: 2px 2px 3px #c7c7c7;
 }
 
 .chevron-container {
@@ -413,7 +435,7 @@ form.search i {
 	font-family: 'Roboto Serif', serif;
 	font-weight: 700;
 	font-size: 1.5em;
-	color: #FFFFFF;
+	color: #000000;
 	padding: 10px;
 }
 
@@ -423,9 +445,12 @@ form.search i {
 	height: auto;
 	font-family: 'Roboto Serif', serif;
 	font-weight: 400;
-	font-size: 0.7em;
-	color: #C7C7C7;
-	padding: 10px;
+	font-size: 0.5em;
+	color: #000000;
+	padding-top: 15px;
+	padding-bottom: 40px;
+	padding-left: 10px;
+	padding-right: 10px;
 }
 
 .course-container img {
@@ -463,7 +488,7 @@ form.search i {
 	white-space: nowrap;
 	width: 175px;
 	height: 45px;
-	background: #333333; 
+	background: #2F3135; 
 	border: solid;
 	color: #d3d2cf;
 	border-radius: 30px;
@@ -551,14 +576,14 @@ a .action-button {
 }
 
 .member-container h3 {
-	color: #333333;
+	color: #2F3135;
 	font-family: 'Merriweather', serif;
 	font-size: 15px;
 	padding-top: 10px;
 }
 
 .member-container h2 {
-	color: #333333;
+	color: #2F3135;
   font-family: 'Roboto', sans-serif;
 	font-size: 45px;
 	padding-top: 25px;
@@ -569,7 +594,7 @@ a .action-button {
 }
 
 .member-container p {
-	color: #333333;
+	color: #2F3135;
 	font-family: 'Merriweather', serif;
 	font-size: 11px;
 	padding-top: 25px;
@@ -583,13 +608,13 @@ a .action-button {
 
 #learning-button {
 	width: 145px;
-	background-color: #333333;
+	background-color: #2F3135;
   font-family: 'Roboto', sans-serif;
 	font-weight: 700;
 }
 
 #details-button {
-	color: #333333;
+	color: #2F3135;
 	background-color: #D9D9D9;
   font-family: 'Roboto', sans-serif;
 	font-weight: 700;

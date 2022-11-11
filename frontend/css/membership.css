@@ -3,13 +3,17 @@
 }
 
 body {
-	background-color: #333333;
+	background-color: #2F3135;
 }
 
 .header {
 	position: relative;
 	text-align: center;
-	display: block;
+	width: 100vw;
+	height: 100vh;
+	background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(../images/people-sunset-doc.jpg);
+	background-position: center;
+	background-size: cover;
 }
 
 .header #logo {
@@ -18,13 +22,6 @@ body {
 	width: 25%;
 	height: auto;
 	z-index: 100;
-}
-
-
-.header #sunset {
-	width: 100%;
-	height: auto;
-	filter: brightness(50%);
 }
 
 .nav-links ul {
@@ -165,7 +162,7 @@ h1 {
 	width: 80%;
 	padding-top: 60px;
 	margin-bottom: 5%;
-  border-bottom: 1px solid #333333;
+  border-bottom: 1px solid #2F3135;
 }
 
 .cream-rectangle #dg {
@@ -173,7 +170,7 @@ h1 {
 	font-weight: 400;
 	font-size: 2em;
 	background-color: #FFCF8D;
-	color: #333333;
+	color: #2F3135;
 }
 
 video {

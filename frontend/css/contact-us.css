@@ -3,7 +3,7 @@
 }
 
 body {
-	background-color: #333333;
+	background-color: #2F3135;
 }
 
 .header {
@@ -146,7 +146,7 @@ body {
 	white-space: nowrap;
 	width: 175px;
 	height: 45px;
-	background: #333333; 
+	background: #2F3135; 
 	border: solid;
 	border-radius: 30px;
 	border-width: 2px;
@@ -184,7 +184,7 @@ a .action-button {
 	font-family: 'Roboto Serif', serif;
 	font-weight: 700;
 	font-size: 1.5em;
-	background-color: #333333;
+	background-color: #2F3135;
 	color: #FFFFFF;
 	padding-top: 60px;
 	padding-bottom: 30px;
@@ -201,12 +201,12 @@ a .action-button {
 
 .contact-container {
 	display: grid;
-	width: 60%;
+	width: 40%;
 	border-radius: 15px;
 	height: 100%;
 	background-color: #C7C7C7;
 	text-align: center;
-	margin-left: 15%;
+	margin-left: 25%;
 	padding-right: 5%;
 	padding-left: 5%;
   grid-template-columns: 50% 25% 25%;
@@ -222,7 +222,7 @@ a .action-button {
 }
 
 #contact-header h2 {
-	color: #333333;
+	color: #2F3135;
 }
 
 .input-div {
@@ -240,7 +240,7 @@ a .action-button {
 	font-size: 16px;
 	font-weight: 400;
 	background-color: #D9D9D9;
-	color: #333333;
+	color: #2F3135;
 	height: 82.5%;
 	width: 90%;
 	margin-top: 4%;
@@ -293,7 +293,7 @@ input[type=text] {
 	font-size: 16px;
 	font-weight: 400;
 	background-color: #D9D9D9;
-	color: #333333;
+	color: #2F3135;
 }
 
 input[type=text]::placeholder {
@@ -326,7 +326,7 @@ input[type=text]::placeholder {
 	height: 70px;
 	border: none;
 	border-radius: 5px;
-	color: #333333;
+	color: #2F3135;
 	padding: 2% 2%;
 }
 

@@ -3,13 +3,15 @@
 }
 
 body {
-	background-color: #333333;
+	background-color: #2F3135;
 }
 
 .header {
 	position: relative;
 	text-align: center;
 	display: block;
+	width: 100%;
+	height: auto;
 }
 
 .header #mountains {
@@ -146,7 +148,7 @@ body {
 	white-space: nowrap;
 	width: 175px;
 	height: 45px;
-	background: #333333; 
+	background: #2F3135; 
 	border: solid;
 	border-radius: 30px;
 	border-width: 2px;
@@ -208,7 +210,7 @@ a .action-button {
 	font-family: 'Roboto Serif', serif;
 	font-weight: 700;
 	font-size: 1.5em;
-	background-color: #333333;
+	background-color: #2F3135;
 	color: #FFFFFF;
 	padding-top: 60px;
 	padding-bottom: 30px;
