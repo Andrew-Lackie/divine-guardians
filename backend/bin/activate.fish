@@ -57,7 +57,7 @@ end
 # Unset irrelevant variables.
 deactivate nondestructive
 
-set -gx VIRTUAL_ENV '/home/andrew/Projects/web_dev/professional/divine-guardians/root/dg-backend'
+set -gx VIRTUAL_ENV '/home/andrew/Projects/web_dev/professional/divine-guardians/divine-guardians/backend'
 
 # https://github.com/fish-shell/fish-shell/issues/436 altered PATH handling
 if test (echo $FISH_VERSION | head -c 1) -lt 3

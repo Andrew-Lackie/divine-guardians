@@ -261,12 +261,13 @@ a .action-button {
 	width: auto;
 	padding-top: 5%;
 	padding-bottom: 5%;
-	padding-left: 10%;
 	border-radius: 15px;
+
 }
 
 #left-container {
 	margin-left: 10%;
+	padding-right: 5%;
 }
 
 #left-container h3 {

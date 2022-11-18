@@ -9,7 +9,7 @@ def-env activate-virtualenv [] {
     }
 
     let is_windows = ((sys).host.name | str downcase) == 'windows'
-    let virtual_env = '/home/andrew/Projects/web_dev/professional/divine-guardians/root/dg-backend'
+    let virtual_env = '/home/andrew/Projects/web_dev/professional/divine-guardians/divine-guardians/backend'
     let bin = 'bin'
     let path_sep = ':'
     let path_name = if $is_windows {
@@ -89,4 +89,4 @@ def-env activate-virtualenv [] {
 activate-virtualenv
 
 alias pydoc = python -m pydoc
-alias deactivate = source '/home/andrew/Projects/web_dev/professional/divine-guardians/root/dg-backend/bin/deactivate.nu'
+alias deactivate = source '/home/andrew/Projects/web_dev/professional/divine-guardians/divine-guardians/backend/bin/deactivate.nu'

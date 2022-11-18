@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="../css/login-page.css">
+	<meta charset="UTF-8" content="width=device-width, initial-scale=1">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Poppins:wght@400;500;700&family=Roboto+Serif:opsz,wght@8..144,400;8..144,700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+	<script src="https://kit.fontawesome.com/052b886eac.js" crossorigin="anonymous"></script>
+
+	<title>Home</title>
+
+</head>
+
+<body>
+
+	<section class="header">
+
+		<img id="logo" src="../images/dg-logo.png" alt="Logo">
+
+		<nav>
+			<div class="nav-links">
+
+				<ul>
+					<li>
+						<a href="../index.html">HOME</a>
+					</li>
+
+					<li id="courses">
+						<div class="dropdown-wrapper">
+
+							<button type="button">COURSES</button>
+							<div class="dropdown" id="dropdown-courses">
+
+								<a href="#">Test</a>
+								<a href="#">Test</a>
+								<a href="#">Test</a>
+
+							</div>
+						</div>
+					</li>
+
+
+					<li id="about">
+						<div class="dropdown-wrapper">
+
+						<button type="button">ABOUT</button>
+						<div class="dropdown" id="dropdown-about">
+
+							<a href="../pages/about-us.html">About Us</a>
+							<a href="../pages/contact-us.html">Contact Us</a>
+							<a href="../pages/faq.html">FAQ</a>
+
+						</div>
+						</div>
+					</li>
+
+
+					<li id="resources">
+						<div class="dropdown-wrapper">
+						<button type="button">RESOURCES</button>
+						<div class="dropdown" id="dropdown-resources">
+
+							<a href="../pages/membership.html">Membership</a>
+							<a href="../pages/doc-process.html">Document Processing</a>
+							<a href="../pages/form-autofill.html">Form AutoFill Program</a>
+							<a href="../pages/affil-pro.html">Affiliate Program</a>
+
+						</div>
+						</div>
+					</li>
+
+
+					<li id="blog">
+						<a href="#">BLOG</a>
+					</li>
+
+
+					<li id="account">
+						<div class="dropdown-wrapper">
+						<button type="button">ACCOUNT</button>
+						<div class="dropdown" id="dropdown-account">
+
+							<a href="#">Test</a>
+							<a href="#">Test</a>
+							<a href="#">Test</a>
+
+						</div>
+						</div>
+					</li>
+
+
+				</ul>
+
+			</div>
+		</nav>
+
+		<div class="form-box">
+
+			<div class="button-box">
+
+				<div id="btn"></div>
+
+				<button type="button" class="toggle-btn" id="login-toggle-btn">Login</button>
+				<button type="button" class="toggle-btn" id="register-toggle-btn">Register</button>
+
+			</div>
+
+			<form id="register" class="input-group">
+
+				<div>
+					<input type="email" id="new-email" class="input-field" placeholder="Email" >
+					<span class="error-message"></span>
+				</div>
+				<div>
+					<input type="password" id="new-password" class="input-field" placeholder="Password" >
+					<span class="error-message"></span>
+				</div>
+				<div>
+					<input type="password" id="confirm-password" class="input-field" placeholder="Confirm Password" >
+					<span class="error-message"></span>
+				</div>
+				<input id="reg-show-password" class="check-box" type="checkbox"><span>Show Password</span>
+				<!--<input id="terms-check-box" class="check-box" type="checkbox"><span>I agree to the <a href="terms.html">terms and conditions</a></span>-->
+
+				<button type="submit" id="register-submit-btn" class="submit-btn">Register</button>
+
+			</form>
+
+			<form id="login" class="input-group">
+				<div>
+					<input type="email" id="email" class="input-field" placeholder="Email" >
+					<span class="error-message"></span>
+				</div>
+				<div>
+					<input type="password" id="password" class="input-field" placeholder="Password" >
+					<span class="error-message"></span>
+				</div>
+				<input id="login-show-password" class="check-box" type="checkbox"><span>Show Password</span>
+				<button type="submit" id="login-submit-btn"class="submit-btn">Login</button>
+			</form>
+
+		</div>
+
+	</section>
+	<script src="../js/loginPage.js"></script>
+	<script src="../js/login.js"></script>
+</body>
+</html>

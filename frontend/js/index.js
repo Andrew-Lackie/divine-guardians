@@ -109,7 +109,7 @@ prevBtn.addEventListener('click', function() {
 	currentItemMiddle--;
 	currentItemRight--;
 
-	
+
 	if (currentItemLeft < 0) {
 		currentItemLeft = courses.length - 1;
 		currentItemMiddle = 0;
@@ -129,3 +129,7 @@ prevBtn.addEventListener('click', function() {
 	updateRight(currentItemRight);
 })
 
+
+fetch("http://127.0.0.1:8000/users/8")
+	.then((response) => response.json())
+	.then((data) => console.log(data));

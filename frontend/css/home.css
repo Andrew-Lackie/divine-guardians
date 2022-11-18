@@ -388,29 +388,26 @@ form.search i {
 	padding-right: 3%;
 	padding-bottom: 1%;
 	margin: 1%;
-	background-color: #C7c7c7;
-	box-shadow: 1px 1px 3px #c7c7c7;
+	background-color: #D9D9D9;
+	cursor: pointer;
 }
 
 #courses-left-container:hover {
 	margin: 0;
 	width: 26%;
 	height: 100%;
-	box-shadow: 2px 2px 3px #c7c7c7;
 }
 
 #courses-middle-container:hover {
 	margin: 0;
 	width: 26%;
 	height: 100%;
-	box-shadow: 2px 2px 3px #c7c7c7;
 }
 
 #courses-right-container:hover {
 	margin: 0;
 	width: 26%;
 	height: 100%;
-	box-shadow: 2px 2px 3px #c7c7c7;
 }
 
 .chevron-container {
