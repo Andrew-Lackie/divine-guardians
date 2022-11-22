@@ -106,18 +106,27 @@
 
 			</div>
 
-			<form id="register" class="input-group">
+			<form action="../pages/dashboard.html" id="register" class="input-group">
+				<span class="error-message" id="email-error"></span>
+				<div>
+					<input type="text" id="fname" class="input-field" placeholder="First Name" >
+					<span class="error-message"></span>
+				</div>
+				<div>
+					<input type="text" id="lname" class="input-field" placeholder="Last Name" >
+					<span class="error-message"></span>
+				</div>
 
 				<div>
 					<input type="email" id="new-email" class="input-field" placeholder="Email" >
 					<span class="error-message"></span>
 				</div>
 				<div>
-					<input type="password" id="new-password" class="input-field" placeholder="Password" >
+					<input type="password" id="new-password" class="password input-field" placeholder="Password" >
 					<span class="error-message"></span>
 				</div>
 				<div>
-					<input type="password" id="confirm-password" class="input-field" placeholder="Confirm Password" >
+					<input type="password" id="confirm-password" class="password input-field" placeholder="Confirm Password" >
 					<span class="error-message"></span>
 				</div>
 				<input id="reg-show-password" class="check-box" type="checkbox"><span>Show Password</span>
@@ -127,7 +136,8 @@
 
 			</form>
 
-			<form id="login" class="input-group">
+			<form action="../pages/dashboard.html" id="login" class="input-group">
+				<span class="error-message" id="invalid-credentials"></span>
 				<div>
 					<input type="email" id="email" class="input-field" placeholder="Email" >
 					<span class="error-message"></span>
@@ -145,5 +155,6 @@
 	</section>
 	<script src="../js/loginPage.js"></script>
 	<script src="../js/login.js"></script>
+	<script src="../js/register.js"></script>
 </body>
 </html>

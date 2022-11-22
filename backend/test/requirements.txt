@@ -4,6 +4,7 @@ cassandra-driver
 python-dotenv
 black
 psycopg
+psycopg2-binary
 sqlalchemy
 email-validator
 passlib[bcrypt]

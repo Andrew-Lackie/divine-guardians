@@ -13,6 +13,7 @@ const loginSubmitBtn = document.getElementById('login-submit-btn');
 const registerSubmitBtn = document.getElementById('register-submit-btn');
 const loginShowPass = document.getElementById('login-show-password');
 const regShowPass = document.getElementById('reg-show-password');
+const formBox = document.querySelector('.form-box');
 
 // event listeners
 
@@ -20,12 +21,16 @@ loginToggleBtn.addEventListener('click', function () {
   loginToggle.style.left = '50px';
   registerToggle.style.left = '-450px';
   toggleBtn.style.left = '0';
+  formBox.style.height = '450px';
+  formBox.style.margin = '10% auto';
 });
 
 registerToggleBtn.addEventListener('click', function () {
   loginToggle.style.left = '450px';
   registerToggle.style.left = '50px';
   toggleBtn.style.left = '125px';
+  formBox.style.height = '600px';
+  formBox.style.margin = '6% auto';
 });
 
 loginShowPass.addEventListener('change', function () {

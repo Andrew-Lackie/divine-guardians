@@ -1,11 +1,11 @@
-class Login {
+class Register {
   constructor(form, fields) {
     this.form = form;
     this.fields = fields;
-    this.validateonSubmit();
+    this.registerOnSubmit();
   }
 
-  validateonSubmit() {
+  registerOnSubmit() {
     let self = this;
     this.form.addEventListener('submit', (e) => {
       e.preventDefault();
@@ -18,7 +18,37 @@ class Login {
         }
       });
       if (error == 0) {
-        console.log('Success');
+        let data = {
+          fname: document.querySelector('#fname').value,
+          lname: document.querySelector('#fname').value,
+          username: document.querySelector('#new-email').value,
+          password: document.querySelector('#new-password').value,
+        };
+
+        fetch('http://127.0.0.1:8000/users', {
+          method: 'POST',
+          body: JSON.stringify(data),
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+          },
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            //const errorMessage = document.getElementById('email-error');
+            /*if (data.detail) {*/
+            /*console.log('ERROR');*/
+            /*errorMessage.display = 'block';*/
+            /*errorMessage.innerHTML =*/
+            /*'Your password or username is incorrect, please try again.';*/
+            /*} else {*/
+            /*errorMessage.style.display = 'none';*/
+            /*localStorage.setItem('token', data.access_token);*/
+            /*localStorage.setItem('token_type', data.token_type);*/
+            this.form.submit();
+            /*}*/
+          });
       }
     });
   }
@@ -32,10 +62,7 @@ class Login {
       );
       return false;
     } else {
-      if (
-        field.getAttribute('placeholder') == 'Password' ||
-        field.getAttribute('placeholder') == 'Confirm Password'
-      ) {
+      if (field.getAttribute('class') == 'password') {
         if (field.value.length < 8) {
           this.setStatus(
             field,
@@ -72,8 +99,14 @@ class Login {
   }
 }
 
-const login = document.getElementById('login');
-if (login) {
-  const fields = ['email', 'password'];
-  const validate = new Login(login, fields);
+const register = document.getElementById('register');
+if (register) {
+  const fields = [
+    'fname',
+    'lname',
+    'email',
+    'new-password',
+    'confirm-password',
+  ];
+  const validate = new Register(register, fields);
 }

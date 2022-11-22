@@ -8,6 +8,8 @@ class User(Base):
     __tablename__ = "users"
 
     id = Column(Integer, primary_key="True", nullable=False)
+    fname = Column(String, nullable=False)
+    lname = Column(String, nullable=False)
     email = Column(String, unique=True, nullable=False)
     password = Column(String, nullable=False)
     created_at = Column(
