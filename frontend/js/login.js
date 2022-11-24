@@ -45,7 +45,6 @@ class Login {
             console.log(data);
             const errorMessage = document.getElementById('invalid-credentials');
             if (data.detail) {
-              console.log('ERROR');
               errorMessage.display = 'block';
               errorMessage.innerHTML =
                 'Your password or username is incorrect, please try again.';

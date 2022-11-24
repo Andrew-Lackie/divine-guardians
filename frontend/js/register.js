@@ -21,7 +21,7 @@ class Register {
         let data = {
           fname: document.querySelector('#fname').value,
           lname: document.querySelector('#fname').value,
-          username: document.querySelector('#new-email').value,
+          email: document.querySelector('#new-email').value,
           password: document.querySelector('#new-password').value,
         };
 
@@ -29,7 +29,6 @@ class Register {
           method: 'POST',
           body: JSON.stringify(data),
           headers: {
-            Accept: 'application/json',
             'Content-Type': 'application/json',
           },
         })
@@ -104,7 +103,7 @@ if (register) {
   const fields = [
     'fname',
     'lname',
-    'email',
+    'new-email',
     'new-password',
     'confirm-password',
   ];
