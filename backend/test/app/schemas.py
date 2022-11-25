@@ -2,6 +2,8 @@ from datetime import datetime
 from pydantic import BaseModel, EmailStr
 from typing import Optional
 
+# User Schemas
+
 
 class UserBase(BaseModel):
     username: str
@@ -49,3 +51,34 @@ class Token(BaseModel):
 
 class TokenData(BaseModel):
     id: Optional[str] = None
+
+
+# Course Schemas
+
+
+class CourseBase(BaseModel):
+    name: str
+    price: float
+
+    class Config:
+        orm_mode = True
+
+
+class CourseCreate(CourseBase):
+    pass
+
+
+class UpdateCourse(BaseModel):
+    name: Optional[str] = None
+    price: Optional[float] = None
+
+
+class CourseDelete(CourseBase):
+    id: int
+
+
+class CourseOut(CourseBase):
+    id: int
+
+    class Config:
+        orm_mode = True

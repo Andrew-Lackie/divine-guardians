@@ -20,10 +20,11 @@ class Register {
       if (error == 0) {
         let data = {
           fname: document.querySelector('#fname').value,
-          lname: document.querySelector('#fname').value,
+          lname: document.querySelector('#lname').value,
           email: document.querySelector('#new-email').value,
           password: document.querySelector('#new-password').value,
         };
+        localStorage.setItem('fname', data.fname);
 
         fetch('http://127.0.0.1:8000/users', {
           method: 'POST',
@@ -35,18 +36,15 @@ class Register {
           .then((res) => res.json())
           .then((data) => {
             console.log(data);
-            //const errorMessage = document.getElementById('email-error');
-            /*if (data.detail) {*/
-            /*console.log('ERROR');*/
-            /*errorMessage.display = 'block';*/
-            /*errorMessage.innerHTML =*/
-            /*'Your password or username is incorrect, please try again.';*/
-            /*} else {*/
-            /*errorMessage.style.display = 'none';*/
-            /*localStorage.setItem('token', data.access_token);*/
-            /*localStorage.setItem('token_type', data.token_type);*/
-            this.form.submit();
-            /*}*/
+            const errorMessage = document.getElementById('email-error');
+            if (data.detail) {
+              console.log('ERROR');
+              errorMessage.display = 'block';
+              errorMessage.innerHTML = 'Email already registered';
+            } else {
+              errorMessage.style.display = 'none';
+              this.form.submit();
+            }
           });
       }
     });
@@ -99,6 +97,7 @@ class Register {
 }
 
 const register = document.getElementById('register');
+
 if (register) {
   const fields = [
     'fname',
