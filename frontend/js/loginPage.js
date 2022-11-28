@@ -2,15 +2,13 @@
 let loginToggle = document.getElementById('login');
 let registerToggle = document.getElementById('register');
 let toggleBtn = document.getElementById('btn');
-let password = document.getElementById('password');
-let newPassword = document.getElementById('new-password');
-let confPassword = document.getElementById('confirm-password');
+let password = document.querySelectorAll('.password');
+let icon = document.querySelectorAll('.icon');
 
 // buttons
 const loginToggleBtn = document.getElementById('login-toggle-btn');
 const registerToggleBtn = document.getElementById('register-toggle-btn');
-const loginShowPass = document.getElementById('login-show-password');
-const regShowPass = document.getElementById('reg-show-password');
+const showPass = document.querySelectorAll('.show-password');
 const formBox = document.querySelector('.form-box');
 
 // event listeners
@@ -31,24 +29,18 @@ registerToggleBtn.addEventListener('click', function () {
   formBox.style.margin = '6% auto';
 });
 
-loginShowPass.addEventListener('change', function () {
-  if (password.getAttribute('type') == 'password') {
-    password.setAttribute('type', 'text');
-  } else {
-    password.setAttribute('type', 'password');
-  }
-});
-
-regShowPass.addEventListener('change', function () {
-  if (newPassword.getAttribute('type') == 'password') {
-    newPassword.setAttribute('type', 'text');
-  } else {
-    newPassword.setAttribute('type', 'password');
-  }
-
-  if (confPassword.getAttribute('type') == 'password') {
-    confPassword.setAttribute('type', 'text');
-  } else {
-    confPassword.setAttribute('type', 'password');
-  }
+showPass.forEach((spass) => {
+  spass.addEventListener('click', () => {
+    password.forEach((pass) => {
+      if (pass.getAttribute('type') == 'password') {
+        icon[0].setAttribute('class', 'icon fa-solid fa-eye');
+        icon[1].setAttribute('class', 'icon fa-solid fa-eye');
+        pass.setAttribute('type', 'text');
+      } else {
+        icon[0].setAttribute('class', 'icon fa-solid fa-eye-slash');
+        icon[1].setAttribute('class', 'icon fa-solid fa-eye-slash');
+        pass.setAttribute('type', 'password');
+      }
+    });
+  });
 });

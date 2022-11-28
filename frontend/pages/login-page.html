@@ -109,11 +109,11 @@
 			<form action="../pages/registered.html" id="register" class="input-group">
 				<span class="error-message" id="email-error"></span>
 				<div>
-					<input type="text" id="fname" class="input-field" placeholder="First Name" >
+					<input type="text" id="fname" class="input-field" placeholder="Legal First Name" >
 					<span class="error-message"></span>
 				</div>
 				<div>
-					<input type="text" id="lname" class="input-field" placeholder="Last Name" >
+					<input type="text" id="lname" class="input-field" placeholder="Legal Surname" >
 					<span class="error-message"></span>
 				</div>
 
@@ -127,10 +127,10 @@
 				</div>
 				<div>
 					<input type="password" id="confirm-password" class="password input-field" placeholder="Confirm Password" >
+					<button type="button" id="reg-eye" class="show-password"><i class="icon fa-solid fa-eye-slash"></i></button>
 					<span class="error-message"></span>
 				</div>
-				<input id="reg-show-password" class="check-box" type="checkbox"><span>Show Password</span>
-				<!--<input id="terms-check-box" class="check-box" type="checkbox"><span>I agree to the <a href="terms.html">terms and conditions</a></span>-->
+				<input id="terms" class="check-box" type="checkbox"><span><a href="terms.html">Terms and Conditions</a></span>
 
 				<button type="submit" id="register-submit-btn" class="submit-btn">Register</button>
 
@@ -143,10 +143,10 @@
 					<span class="error-message"></span>
 				</div>
 				<div>
-					<input type="password" id="password" class="input-field" placeholder="Password" >
+					<input type="password" id="password" class="password input-field" placeholder="Password" >
+					<button type="button" id="log-eye" class="show-password"><i class="icon fa-solid fa-eye-slash"></i></button>
 					<span class="error-message"></span>
 				</div>
-				<input id="login-show-password" class="check-box" type="checkbox"><span>Show Password</span>
 				<button type="submit" id="login-submit-btn" class="submit-btn">Login</button>
 			</form>
 
