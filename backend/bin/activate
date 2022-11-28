@@ -44,7 +44,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV='/home/andrew/Projects/web_dev/professional/divine-guardians/divine-guardians/backend'
+VIRTUAL_ENV='/home/andrew/Projects/web_dev/professional/divine-guardians/divine-guardians/test'
 if ([ "$OSTYPE" = "cygwin" ] || [ "$OSTYPE" = "msys" ]) && $(command -v cygpath &> /dev/null) ; then
     VIRTUAL_ENV=$(cygpath -u "$VIRTUAL_ENV")
 fi
