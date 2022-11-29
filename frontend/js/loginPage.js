@@ -18,7 +18,7 @@ loginToggleBtn.addEventListener('click', function () {
   registerToggle.style.left = '-450px';
   toggleBtn.style.left = '0';
   formBox.style.height = '450px';
-  formBox.style.margin = '10% auto';
+  formBox.style.margin = '12% auto';
 });
 
 registerToggleBtn.addEventListener('click', function () {
@@ -26,7 +26,7 @@ registerToggleBtn.addEventListener('click', function () {
   registerToggle.style.left = '50px';
   toggleBtn.style.left = '125px';
   formBox.style.height = '650px';
-  formBox.style.margin = '6% auto';
+  formBox.style.margin = '10% auto';
 });
 
 showPass.forEach((spass) => {

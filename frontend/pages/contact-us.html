@@ -2,11 +2,13 @@
 <html lang="en">
 <head>
   <link rel="stylesheet" href="../css/contact-us.css">
+  <link rel="stylesheet" href="../css/header-component.css">
 	<meta charset="UTF-8" content="width=device-width, initial-scale=1">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Poppins:wght@400;500;700&family=Roboto+Serif:opsz,wght@8..144,400;8..144,700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 	<script src="https://kit.fontawesome.com/052b886eac.js" crossorigin="anonymous"></script>
+	<script src="../components/header.js"></script>
 
 	<title>Home</title>
 
@@ -16,84 +18,8 @@
 
 	<section class="header">
 
-		<img id="logo" src="../images/dg-logo.png" alt="Logo">
 
-		<nav>
-			<div class="nav-links">
-
-				<ul>
-					<li>
-						<a href="../index.html">HOME</a>
-					</li>
-
-					<li id="courses">
-						<div class="dropdown-wrapper">
-
-							<button type="button">COURSES</button>
-							<div class="dropdown" id="dropdown-courses">
-
-								<a href="#">Test</a>
-								<a href="#">Test</a>
-								<a href="#">Test</a>
-
-							</div>
-						</div>
-					</li>
-
-
-					<li id="about">
-						<div class="dropdown-wrapper">
-
-						<button type="button">ABOUT</button>
-						<div class="dropdown" id="dropdown-about">
-
-							<a href="../pages/about-us.html">About Us</a>
-							<a href="../pages/contact-us.html">Contact Us</a>
-							<a href="../pages/faq.html">FAQ</a>
-
-						</div>
-						</div>
-					</li>
-
-
-					<li id="resources">
-						<div class="dropdown-wrapper">
-						<button type="button">RESOURCES</button>
-						<div class="dropdown" id="dropdown-resources">
-
-							<a href="../pages/membership.html">Membership</a>
-							<a href="../pages/doc-process.html">Document Processing</a>
-							<a href="../pages/form-autofill.html">Form AutoFill Program</a>
-							<a href="../pages/affil-pro.html">Affiliate Program</a>
-
-						</div>
-						</div>
-					</li>
-
-
-					<li id="blog">
-						<a href="#">BLOG</a>
-					</li>
-
-
-					<li id="account">
-						<div class="dropdown-wrapper">
-						<button type="button">ACCOUNT</button>
-						<div class="dropdown" id="dropdown-account">
-
-							<a href="#">Test</a>
-							<a href="#">Test</a>
-							<a href="#">Test</a>
-
-						</div>
-						</div>
-					</li>
-
-
-				</ul>
-
-			</div>
-		</nav>
+		<header-component></header-component>
 
 		<img id="mountains" src="../images/forest-doc.jpg" alt="Mountains">
 
@@ -201,7 +127,7 @@
 							<option value="WY">Wyoming</option>
 						</select>
 				</div>
-					
+
 					<div id="country-dropdown" class="dropdown-div">
 						<select name="country">
 							<option>Country</option>
@@ -475,7 +401,7 @@
 
 
 			</div>
-			
+
 		 </form>
 	</section>
 

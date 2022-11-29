@@ -1,3 +1,4 @@
+import os
 from fastapi import status, Depends, HTTPException
 from fastapi.security import OAuth2PasswordBearer
 from functools import lru_cache
@@ -8,8 +9,6 @@ from .config import settings
 
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="login")
 
-ALGORITHM = "HS256"
-
 
 @lru_cache
 def get_settings():
@@ -18,11 +17,11 @@ def get_settings():
 
 def create_access_token(data: dict):
     to_encode = data.copy()
-
     expire = datetime.utcnow() + timedelta(minutes=settings.ACCESS_TOKEN_EXPIRE_MINUTE)
     to_encode.update({"exp": expire})
 
-    encoded_jwt = jwt.encode(to_encode, settings.SECRET_KEY, algorithm=ALGORITHM)
+    SECRET_KEY = os.environ.get("SECRET_KEY")
+    encoded_jwt = jwt.encode(to_encode, SECRET_KEY, algorithm=settings.ALGORITHM)
 
     return encoded_jwt
 
@@ -30,7 +29,9 @@ def create_access_token(data: dict):
 def verify_access_token(token: str, credentials_exception):
     try:
 
-        payload = jwt.decode(token, settings.SECRET_KEY, algorithms=[ALGORITHM])
+        SECRET_KEY = os.environ.get("SECRET_KEY")
+
+        payload = jwt.decode(token, SECRET_KEY, algorithms=[settings.ALGORITHM])
 
         id: str = payload.get("user_id")
 

@@ -5,5 +5,5 @@ const fname = localStorage.getItem('fname');
 name.innerText = fname;
 
 continueBtn.addEventListener('click', (e) => {
-  window.location.replace('login-page.html');
+  window.location.replace('dashboard.html');
 });
