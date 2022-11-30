@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="../css/dashboard.css">
+  <link rel="stylesheet" href="../css/header-component.css">
+	<meta charset="UTF-8" content="width=device-width, initial-scale=1">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Poppins:wght@400;500;700&family=Roboto+Serif:opsz,wght@8..144,400;8..144,700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+	<script src="https://kit.fontawesome.com/052b886eac.js" crossorigin="anonymous"></script>
+	<script src="../components/header.js"></script>
+	<script src="https://js.stripe.com/v3/"></script>
+	<script src="../js/stripe.js"></script>
+	<script src="../js/dashboard.js"></script>
+
+	<title>Home</title>
+
+</head>
+
+<body>
+
+
+	<section class="header">
+
+		<header-component></header-component>
+
+
+		<!--<img id="" src="../images/.jpg" alt="">-->
+
+	</section>
+
+	<section class="main-content">
+		<p class="text-center"><a href="#" class="logout">Log Out</a></p>
+
+		<div class="tab">
+			<button class="tab-links" onclick="openTab(event, 'membership')">Membership</button>
+			<button class="tab-links" onclick="openTab(event, 'course')">Courses</button>
+			<button class="tab-links" onclick="openTab(event, 'forms')">Forms</button>
+			<button class="tab-links" onclick="openTab(event, 'account')">Account</button>
+		</div>
+
+		<!-- Tab content -->
+		<div id="membership" class="tab-content">
+			<button class="starter-membership">Starter</button>
+			<button class="pro-membership">Pro</button>
+			<button class="premium-membership">Premium</button>
+		</div>
+
+		<div id="course" class="tab-content">
+			<h3>Course</h3>
+		</div>
+
+		<div id="forms" class="tab-content">
+			<h3>Forms</h3>
+			<p>Tokyo is the capital of Japan.</p>
+		</div>
+
+		<div id="Account" class="tab-content">
+			<h3>Account</h3>
+			<p>Tokyo is the capital of Japan.</p>
+		</div>
+
+
+
+	</section>
+
+	<script src="../js/auth.js"></script>
+	<script src="../js/init.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,67 @@
+* {
+	margin: 0;
+}
+
+body {
+	background-color: #2F3135;
+}
+
+.header {
+	position: static;
+	text-align: center;
+	width: 100vw;
+	height: 100vh;
+	background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(../images/people-sunset-doc.jpg);
+	background-position: center;
+	background-size: cover;
+}
+
+h1 {
+	color: #82C836;
+}
+
+.btn-container a {
+  font-family: 'Roboto Serif', serif;
+  font-size: 16px;
+	font-weight: 700;
+  padding: 12px 24px;
+  border-style: solid;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.cream-rectangle {
+	display: inline-flex;
+	justify-content: center;
+	width: 100%;
+	text-align: center;
+	height: 200px;
+	background-color: #FFCF8D;
+}
+
+
+.cream-rectangle i {
+	position: absolute;
+	left: 15%;
+	margin-top: 1.5%;
+}
+
+.dg-title-container {
+	width: 80%;
+	padding-top: 60px;
+	margin-bottom: 5%;
+  border-bottom: 1px solid #2F3135;
+}
+
+.cream-rectangle #dg {
+	font-family: 'Merriweather', serif;
+	font-weight: 400;
+	font-size: 2em;
+	background-color: #FFCF8D;
+	color: #2F3135;
+}
+
+video {
+	width: 100%;
+	filter: brightness(50%);
+}

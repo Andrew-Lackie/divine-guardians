@@ -2,13 +2,11 @@
 <html lang="en">
 <head>
   <link rel="stylesheet" href="css/home.css">
-  <link rel="stylesheet" href="css/header-component.css">
 	<meta charset="UTF-8" content="width=device-width, initial-scale=1">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Poppins:wght@400;500;700&family=Roboto+Serif:opsz,wght@8..144,400;8..144,700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 	<script src="https://kit.fontawesome.com/052b886eac.js" crossorigin="anonymous"></script>
-	<script src="components/header.js"></script>
 
 	<title>Home</title>
 
@@ -17,13 +15,112 @@
 
 	<section class="header">
 
-		<header-component></header-component>
+		<!--Menu-->
+
+		<nav>
+			<div class="nav-links">
+
+				<ul>
+					<li>
+						<a href="index.html">HOME</a>
+					</li>
+
+					<li id="courses">
+						<div class="dropdown-wrapper">
+
+							<button type="button">COURSES</button>
+							<div class="dropdown" id="dropdown-courses">
+
+								<a href="#">Test</a>
+								<a href="#">Test</a>
+								<a href="#">Test</a>
+
+							</div>
+						</div>
+					</li>
+
+
+					<li id="about">
+						<div class="dropdown-wrapper">
+
+						<button type="button">ABOUT</button>
+						<div class="dropdown" id="dropdown-about">
+
+							<a href="pages/about-us.html">About Us</a>
+							<a href="pages/contact-us.html">Contact Us</a>
+							<a href="pages/faq.html">FAQ</a>
+
+						</div>
+						</div>
+					</li>
+
+
+					<li id="resources">
+						<div class="dropdown-wrapper">
+						<button type="button">RESOURCES</button>
+						<div class="dropdown" id="dropdown-resources">
+
+							<a href="pages/membership.html">Membership</a>
+							<a href="pages/doc-process.html">Document Processing</a>
+							<a href="pages/form-autofill.html">Form AutoFill Program</a>
+							<a href="pages/affil-pro.html">Affiliate Program</a>
+
+						</div>
+						</div>
+					</li>
+
+
+					<li id="blog">
+						<a href="#">BLOG</a>
+					</li>
+
+
+					<li id="account">
+						<div class="dropdown-wrapper">
+						<button type="button">ACCOUNT</button>
+						<div class="dropdown" id="dropdown-account">
+
+							<a href="pages/login-page.html">Login</a>
+							<a href="pages/register-page.html">Register</a>
+							<a href="#">Dashboard</a>
+
+						</div>
+						</div>
+					</li>
+
+
+				</ul>
+
+			</div>
+		</nav>
+
+		<!--Logo-->
+
+		<div class="logo">
+
+			<h1><span class="divine">Divine<span> </span><span class="guardian">Guardians</span> </h1>
+			<div class="btn-container">
+				<a id="join" href="pages/register-page.html">Join</a>
+				<a id="login" href="pages/login-page.html">Login</a>
+			</div>
+
+		</div>
 
 
 	</section>
 
 	<section class="main-content">
 
+
+		<div id="gray-rectangle" class="rectangle">
+
+			<div class="dg-title-container">
+
+				<p id="dg"><i class="fa-solid fa-book-bible fa-lg"></i> Become a Divine Guardian.</p>
+
+			</div>
+
+		</div>
 
 		<div id="cream-rectangle-1" class="rectangle">
 			<video autoplay controls muted>

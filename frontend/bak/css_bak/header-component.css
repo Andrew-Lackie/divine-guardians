@@ -1,0 +1,236 @@
+.header #logo {
+	position: relative;
+	width: 33%;
+	height: auto;
+	z-index: 100;
+}
+
+nav {
+	position: fixed;
+	background-color: #2F3135;
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	align-items: center;
+	z-index: 100;
+}
+
+nav ul {
+	width: 33%;
+	white-space: nowrap;
+  list-style-type: none;
+	z-index: 100;
+}
+
+nav ul li {
+	display: inline;
+	padding: 10px;
+}
+
+nav ul li a {
+  font-family: 'Roboto', sans-serif;
+	font-weight: 700;
+	font-size: 1em;
+	color: #DDDDDD;
+	text-decoration: none;
+	padding-bottom: 5px;
+	transition: 0.3s;
+}
+
+nav ul li button {
+  font-family: 'Roboto', sans-serif;
+	font-weight: 700;
+	font-size: 1em;
+	color: #DDDDDD;
+	border: none;
+	background-color: transparent;
+	text-decoration: none;
+	padding-bottom: 5px;
+	transition: 0.3s;
+}
+
+nav ul #courses:hover #dropdown-courses {
+  display: flex;
+	flex-direction: column;
+	z-index: 10;
+}
+
+nav ul #about:hover #dropdown-about {
+  display: flex;
+	flex-direction: column;
+	z-index: 10;
+}
+
+nav ul #resources:hover #dropdown-resources {
+  display: flex;
+	flex-direction: column;
+	z-index: 10;
+}
+
+nav ul #blog:hover #dropdown-blog {
+  display: flex;
+	flex-direction: column;
+	z-index: 10;
+}
+
+nav ul #account:hover #dropdown-account {
+  display: flex;
+	flex-direction: column;
+	z-index: 10;
+}
+
+nav ul li a:hover {
+	border-bottom: 1px solid #F49AC0;
+}
+
+nav ul li .dropdown-wrapper {
+	display: inline-block;
+	position: relative;
+}
+
+
+.dropdown {
+	display: none;
+	background-color: rgba(199, 199, 199, 0.1);
+	border-radius: 5px;
+	position: absolute;
+	width: auto;
+  overflow: auto;
+}
+
+nav ul li .dropdown a {
+	border-radius: 5px;
+	text-align: left;
+	color: #D9D9D9;
+	padding: 5px;
+  font-family: 'Roboto', sans-serif;
+	font-weight: 400;
+}
+
+nav ul li .dropdown a:hover {
+	background-color: rgba(244, 154, 192, 0.1);
+	border-bottom: 1px solid #F49AC0;
+}
+
+.user-menu {
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	width: 33%;
+	white-space: nowrap;
+}
+
+.icon-container {
+	width: 15%;
+	height: auto;
+	text-align: right;
+}
+
+.nav-icon {
+	color: #FFFFFF;
+	width: 100%;
+}
+
+
+#menu {
+	width: 33%;
+  z-index: 2;
+}
+
+#menu-bar {
+	float: right;
+  width: 25px;
+  height: 15px;
+  cursor: pointer;
+}
+
+.bar {
+  height: 5px;
+  width: 100%;
+  background-color: #FFFFFF;
+  display: block;
+  border-radius: 5px;
+  transition: 0.3s ease;
+}
+
+#bar1 {
+  transform: translateY(-4px);
+}
+
+#bar3 {
+  transform: translateY(4px);
+}
+
+.nav {
+  transition: 0.3s ease;
+  display: none;
+}
+
+.nav ul {
+  padding: 0 22px;
+}
+
+.nav li {
+  list-style: none;
+  padding: 12px 0;
+}
+
+.nav li a {
+  color: white;
+  font-size: 20px;
+  text-decoration: none;
+}
+
+.nav li a:hover {
+  font-weight: bold;
+}
+
+.menu-bg, #menu {
+	width: 15%;
+  top: 0;
+	right: 0;
+}
+
+.menu-bg {
+  z-index: 1;
+  width: 0;
+  height: 0;
+  margin: 30px 0 20px 20px;
+  background: radial-gradient(circle, #2F3135, #2F3135);
+  transition: 0.5s ease;
+}
+
+.change {
+  display: absolute;
+}
+
+.change .bar {
+  background-color: white;
+}
+
+.change #bar1 {
+  transform: translateY(4px) rotateZ(-45deg);
+}
+
+.change #bar2 {
+  opacity: 0;
+}
+
+.change #bar3 {
+  transform: translateY(-6px) rotateZ(45deg);
+}
+
+.change-bg {
+  width: 200px;
+  height: 200px;
+}
+
+.logo {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+  font-family: 'Roboto', sans-serif;
+	font-size: 3.5rem;
+}

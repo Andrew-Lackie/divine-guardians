@@ -1,15 +1,10 @@
-.header #logo {
-	position: relative;
-	width: 33%;
-	height: auto;
-	z-index: 100;
-}
-
 nav {
 	position: fixed;
-	background-color: #2F3135;
+	background-color: #FFFFFF;
 	width: 100%;
+	height: 40px;
 	display: flex;
+	text-align: left;
 	flex-direction: row;
 	flex-wrap: nowrap;
 	align-items: center;
@@ -17,24 +12,21 @@ nav {
 }
 
 nav ul {
-	width: 33%;
-	white-space: nowrap;
+	width: 100%;
   list-style-type: none;
 	z-index: 100;
 }
 
 nav ul li {
 	display: inline;
-	padding: 10px;
 }
 
 nav ul li a {
   font-family: 'Roboto', sans-serif;
 	font-weight: 700;
 	font-size: 1em;
-	color: #DDDDDD;
+	color: #222222;
 	text-decoration: none;
-	padding-bottom: 5px;
 	transition: 0.3s;
 }
 
@@ -42,68 +34,89 @@ nav ul li button {
   font-family: 'Roboto', sans-serif;
 	font-weight: 700;
 	font-size: 1em;
-	color: #DDDDDD;
 	border: none;
 	background-color: transparent;
 	text-decoration: none;
-	padding-bottom: 5px;
 	transition: 0.3s;
 }
 
+/*nav ul #courses:hover #dropdown-courses {*/
+  /*display: flex;*/
+	/*flex-direction: column;*/
+	/*z-index: 10;*/
+/*}*/
+
+/*nav ul #about:hover #dropdown-about {*/
+  /*display: flex;*/
+	/*flex-direction: column;*/
+	/*z-index: 10;*/
+/*}*/
+
+/*nav ul #resources:hover #dropdown-resources {*/
+  /*display: flex;*/
+	/*flex-direction: column;*/
+	/*z-index: 10;*/
+/*}*/
+
+/*nav ul #blog:hover #dropdown-blog {*/
+  /*display: flex;*/
+	/*flex-direction: column;*/
+	/*z-index: 10;*/
+/*}*/
+
+/*nav ul #account:hover #dropdown-account {*/
+  /*display: flex;*/
+	/*flex-direction: column;*/
+	/*z-index: 10;*/
+/*}*/
+
+/*nav ul li a:hover {*/
+	/*border-bottom: 1px solid #F49AC0;*/
+/*}*/
+
 nav ul #courses:hover #dropdown-courses {
-  display: flex;
-	flex-direction: column;
-	z-index: 10;
+	display: block;
+	z-index: 2;
+	position: fixed;
+	width: 100vw;
+	height: 40px;
+	margin-top: 40px;
+}
+
+nav ul #courses:hover .logo-container {
+	display: none;
 }
 
 nav ul #about:hover #dropdown-about {
-  display: flex;
-	flex-direction: column;
-	z-index: 10;
+	display: block;
+	z-index: 2;
+	position: fixed;
+	width: 100vw;
+	height: 40px;
+	margin-top: 40px;
 }
 
 nav ul #resources:hover #dropdown-resources {
-  display: flex;
-	flex-direction: column;
-	z-index: 10;
-}
-
-nav ul #blog:hover #dropdown-blog {
-  display: flex;
-	flex-direction: column;
-	z-index: 10;
-}
-
-nav ul #account:hover #dropdown-account {
-  display: flex;
-	flex-direction: column;
-	z-index: 10;
+	display: block;
+	z-index: 2;
+	position: fixed;
+	width: 100vw;
+	height: 40px;
+	margin-top: 40px;
 }
 
 nav ul li a:hover {
 	border-bottom: 1px solid #F49AC0;
 }
 
-nav ul li .dropdown-wrapper {
-	display: inline-block;
-	position: relative;
-}
-
-
 .dropdown {
 	display: none;
-	background-color: rgba(199, 199, 199, 0.1);
-	border-radius: 5px;
-	position: absolute;
-	width: auto;
-  overflow: auto;
+	width: 100%;
 }
 
 nav ul li .dropdown a {
-	border-radius: 5px;
-	text-align: left;
+	text-align: center;
 	color: #D9D9D9;
-	padding: 5px;
   font-family: 'Roboto', sans-serif;
 	font-weight: 400;
 }
@@ -117,7 +130,7 @@ nav ul li .dropdown a:hover {
 	display: flex;
 	align-items: center;
 	justify-content: flex-end;
-	width: 33%;
+	width: 25%;
 	white-space: nowrap;
 }
 
@@ -128,7 +141,7 @@ nav ul li .dropdown a:hover {
 }
 
 .nav-icon {
-	color: #FFFFFF;
+	color: #222222;
 	width: 100%;
 }
 
@@ -148,7 +161,7 @@ nav ul li .dropdown a:hover {
 .bar {
   height: 5px;
   width: 100%;
-  background-color: #FFFFFF;
+  background-color: #222222;
   display: block;
   border-radius: 5px;
   transition: 0.3s ease;
@@ -177,7 +190,7 @@ nav ul li .dropdown a:hover {
 }
 
 .nav li a {
-  color: white;
+  color: #222222;
   font-size: 20px;
   text-decoration: none;
 }
@@ -193,11 +206,11 @@ nav ul li .dropdown a:hover {
 }
 
 .menu-bg {
-  z-index: 1;
+  z-index: 5;
   width: 0;
   height: 0;
   margin: 30px 0 20px 20px;
-  background: radial-gradient(circle, #2F3135, #2F3135);
+  background: radial-gradient(circle, #FFFFFF, #FFFFFF);
   transition: 0.5s ease;
 }
 
@@ -206,7 +219,7 @@ nav ul li .dropdown a:hover {
 }
 
 .change .bar {
-  background-color: white;
+  background-color: #222222;
 }
 
 .change #bar1 {
@@ -222,15 +235,81 @@ nav ul li .dropdown a:hover {
 }
 
 .change-bg {
-  width: 200px;
-  height: 200px;
+  width: 100%;
+  height: 500px;
 }
 
 .logo {
-	position: absolute;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
   font-family: 'Roboto', sans-serif;
 	font-size: 3.5rem;
+}
+
+.logo-container {
+	z-index: 2;
+	position: fixed;
+	width: 100%;
+	height: 350px;
+	padding-top: 40px;
+	background-color: #222222;
+}
+
+.logo-child-container {
+	padding-top: 1%;
+	text-align: center;
+	width: 100%;
+	padding-bottom: 1%;
+	transition: 0.4s;
+}
+
+#logo {
+	display: block;
+	width: 33%;
+	transition: 0.7s;
+}
+
+.hero-btn {
+	position: relative;
+	text-align: center;
+  font-family: 'Roboto', sans-serif;
+	font-size: 3.5rem;
+}
+
+.btn-container a {
+  font-family: 'Roboto Serif', serif;
+  font-size: 16px;
+	font-weight: 700;
+  padding: 12px 24px;
+  border-style: solid;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+#join {
+  padding: 15px 32px;
+	background: linear-gradient(to right, #0091FE,  #82C836);
+	border: none;
+	text-decoration: none;
+  color: #2F3135;
+}
+
+#join:hover {
+	background: linear-gradient(to right, rgba(0, 145, 254, 0.5),  rgba(130, 200, 54, 0.5));
+}
+
+#login {
+	background-color: transparent;
+	border-color: #82C836;
+}
+
+#login {
+	text-decoration: none;
+	color: #82C836;
+}
+
+#login:hover {
+	border-color: rgba(130, 200, 54, 0.5);
+	color: rgba(130, 200, 54, 0.5);
 }
