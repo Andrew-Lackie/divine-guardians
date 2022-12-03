@@ -1,3 +1,4 @@
+import stripe
 from fastapi import FastAPI, Response, status, HTTPException, Depends, APIRouter
 from sqlalchemy.orm import Session
 from typing import Optional, List
@@ -5,6 +6,8 @@ from .. import models, schemas, utils
 from ..database import engine, get_db
 
 router = APIRouter(prefix="/users", tags=["Users"])
+
+stripe.api_key = "STRIPE_KEY"
 
 
 @router.post("/", status_code=status.HTTP_201_CREATED, response_model=schemas.UserOut)
@@ -16,15 +19,23 @@ def create_user(user: schemas.UserCreate, db: Session = Depends(get_db)):
             status_code=status.HTTP_409_CONFLICT,
             detail=f"Email already registered",
         )
+    else:
 
-    # hash the password
-    hashed_password = utils.hash(user.password)
-    user.password = hashed_password
+        def createUserStripe(email):
+            customer_object = stripe.Customer.create(email=email)
+            return customer_object.id
 
-    new_user = models.User(**user.dict())
-    db.add(new_user)
-    db.commit()
-    db.refresh(new_user)
+        user_id = createUserStripe(user.email)
+        user.id = user_id
+
+        # hash the password
+        hashed_password = utils.hash(user.password)
+        user.password = hashed_password
+
+        new_user = models.User(**user.dict())
+        db.add(new_user)
+        db.commit()
+        db.refresh(new_user)
 
     return new_user
 

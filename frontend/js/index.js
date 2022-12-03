@@ -6,28 +6,28 @@ const courses = [
     header: 'Contract',
     paragraph:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    img: 'images/contract.jpg',
+    img: 'fa-solid fa-file-contract fa-3x',
   },
   {
     id: 2,
     header: 'Estate',
     paragraph:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    img: 'images/estate.jpg',
+    img: 'fa-solid fa-house fa-3x',
   },
   {
     id: 3,
     header: 'Dictionary',
     paragraph:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    img: 'images/dictionary.jpg',
+    img: 'fa-solid fa-book fa-3x',
   },
   {
     id: 4,
     header: 'Equity',
     paragraph:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    img: 'images/estate.jpg',
+    img: 'fa-solid fa-house fa-3x',
   },
 ];
 
@@ -67,22 +67,21 @@ window.addEventListener('DOMContentLoaded', function () {
 // functions
 function updateLeft(course) {
   const item = courses[course];
-  console.log(item.img);
-  leftImg.src = item.img;
+  leftImg.className = item.img;
   leftHeader.textContent = item.header;
   leftParagraph.textContent = item.paragraph;
 }
 
 function updateMiddle(course) {
   const item = courses[course];
-  middleImg.src = item.img;
+  middleImg.className = item.img;
   middleHeader.textContent = item.header;
   middleParagraph.textContent = item.paragraph;
 }
 
 function updateRight(course) {
   const item = courses[course];
-  rightImg.src = item.img;
+  rightImg.className = item.img;
   rightHeader.textContent = item.header;
   rightParagraph.textContent = item.paragraph;
 }

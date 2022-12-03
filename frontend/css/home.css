@@ -1,5 +1,6 @@
 * {
 	margin: 0;
+	padding: 0;
 }
 
 body {
@@ -11,7 +12,7 @@ body {
 	text-align: center;
 	width: 100vw;
 	height: 100vh;
-	/*background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(../images/chess.jpg);*/
+	background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(../images/chess-2.jpg);
 	background-position: center;
 	background-color: #ffffff;
 	background-size: cover;
@@ -245,6 +246,10 @@ form.search i {
 	cursor: pointer;
 }
 
+.course-container i {
+	padding-bottom: 5%;
+}
+
 #courses-left-container:hover {
 	margin: 0;
 	width: 26%;
@@ -285,7 +290,7 @@ form.search i {
 	font-family: 'Roboto Serif', serif;
 	font-weight: 700;
 	font-size: 1.5em;
-	color: #000000;
+	color: #222222;
 	padding: 10px;
 }
 
@@ -296,14 +301,14 @@ form.search i {
 	font-family: 'Roboto Serif', serif;
 	font-weight: 400;
 	font-size: 0.5em;
-	color: #000000;
+	color: #222222;
 	padding-top: 15px;
 	padding-bottom: 40px;
 	padding-left: 10px;
 	padding-right: 10px;
 }
 
-.course-container img {
+.course-container i {
 	width: 75%;
 	height: auto;
 	border-radius: 15px;

@@ -10,8 +10,25 @@ const loginToggleBtn = document.getElementById('login-toggle-btn');
 const registerToggleBtn = document.getElementById('register-toggle-btn');
 const showPass = document.querySelectorAll('.show-password');
 const formBox = document.querySelector('.form-box');
-
+/*const loginStore = localStorage.getItem('login');*/
+/*const joinStore = localStorage.getItem('register');*/
 // event listeners
+
+/*window.addEventListener('load', (event) => {*/
+/*if (loginStore == 1) {*/
+/*console.log(loginStore);*/
+/*loginToggle.style.left = '50px';*/
+/*registerToggle.style.left = '-450px';*/
+/*toggleBtn.style.left = '0';*/
+/*localStorage.removeItem('login');*/
+/*} else if (joinStore == 1) {*/
+/*console.log(joinStore);*/
+/*loginToggle.style.left = '50px';*/
+/*registerToggle.style.left = '450px';*/
+/*toggleBtn.style.left = '125px';*/
+/*localStorage.removeItem('join');*/
+/*}*/
+/*});*/
 
 loginToggleBtn.addEventListener('click', function () {
   loginToggle.style.left = '50px';

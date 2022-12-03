@@ -18,7 +18,10 @@ nav ul {
 }
 
 nav ul li {
+	width: 100%;
 	display: inline;
+	margin-left: 6%;
+	margin-right: 6%;
 }
 
 nav ul li a {
@@ -28,6 +31,11 @@ nav ul li a {
 	color: #222222;
 	text-decoration: none;
 	transition: 0.3s;
+}
+
+.dropdown > a {
+	line-height: 75px;
+	margin-right: 10%;
 }
 
 nav ul li button {
@@ -40,78 +48,10 @@ nav ul li button {
 	transition: 0.3s;
 }
 
-/*nav ul #courses:hover #dropdown-courses {*/
-  /*display: flex;*/
-	/*flex-direction: column;*/
-	/*z-index: 10;*/
-/*}*/
-
-/*nav ul #about:hover #dropdown-about {*/
-  /*display: flex;*/
-	/*flex-direction: column;*/
-	/*z-index: 10;*/
-/*}*/
-
-/*nav ul #resources:hover #dropdown-resources {*/
-  /*display: flex;*/
-	/*flex-direction: column;*/
-	/*z-index: 10;*/
-/*}*/
-
-/*nav ul #blog:hover #dropdown-blog {*/
-  /*display: flex;*/
-	/*flex-direction: column;*/
-	/*z-index: 10;*/
-/*}*/
-
-/*nav ul #account:hover #dropdown-account {*/
-  /*display: flex;*/
-	/*flex-direction: column;*/
-	/*z-index: 10;*/
-/*}*/
-
-/*nav ul li a:hover {*/
-	/*border-bottom: 1px solid #F49AC0;*/
-/*}*/
-
-nav ul #courses:hover #dropdown-courses {
-	display: block;
-	z-index: 2;
-	position: fixed;
-	width: 100vw;
-	height: 40px;
-	margin-top: 40px;
-}
-
-nav ul #courses:hover .logo-container {
-	display: none;
-}
-
-nav ul #about:hover #dropdown-about {
-	display: block;
-	z-index: 2;
-	position: fixed;
-	width: 100vw;
-	height: 40px;
-	margin-top: 40px;
-}
-
-nav ul #resources:hover #dropdown-resources {
-	display: block;
-	z-index: 2;
-	position: fixed;
-	width: 100vw;
-	height: 40px;
-	margin-top: 40px;
-}
-
-nav ul li a:hover {
-	border-bottom: 1px solid #F49AC0;
-}
-
 .dropdown {
 	display: none;
 	width: 100%;
+	height: 40px;
 }
 
 nav ul li .dropdown a {
@@ -123,7 +63,6 @@ nav ul li .dropdown a {
 
 nav ul li .dropdown a:hover {
 	background-color: rgba(244, 154, 192, 0.1);
-	border-bottom: 1px solid #F49AC0;
 }
 
 .user-menu {
@@ -154,7 +93,7 @@ nav ul li .dropdown a:hover {
 #menu-bar {
 	float: right;
   width: 25px;
-  height: 15px;
+  height: 13px;
   cursor: pointer;
 }
 
@@ -176,46 +115,60 @@ nav ul li .dropdown a:hover {
 }
 
 .nav {
-  transition: 0.3s ease;
-  display: none;
+	transition: 0.3s ease;
+	display: none;
 }
 
 .nav ul {
-  padding: 0 22px;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	margin-left: auto;
 }
 
 .nav li {
-  list-style: none;
-  padding: 12px 0;
+	list-style: none;
+	padding: 12px 0;
 }
 
 .nav li a {
-  color: #222222;
-  font-size: 20px;
-  text-decoration: none;
+	color: #222222;
+	font-size: 20px;
+	text-decoration: none;
 }
 
 .nav li a:hover {
-  font-weight: bold;
+	font-weight: bold;
 }
 
-.menu-bg, #menu {
+#menu {
 	width: 15%;
-  top: 0;
-	right: 0;
+	margin-right: 5%;
 }
 
 .menu-bg {
-  z-index: 5;
-  width: 0;
-  height: 0;
-  margin: 30px 0 20px 20px;
-  background: radial-gradient(circle, #FFFFFF, #FFFFFF);
+	position: relative;
+	height: 250px;
+	display: none;
+	top: 50%;
+	width: 50%;
+	border-radius: 10px 0 0 10px;
+  background: radial-gradient(#FFCF8D, #FFCF8D);
   transition: 0.5s ease;
 }
 
+#menu-select {
+	width: 100%;
+	background: transparent;
+	border: none;
+}
+
+.menu-bg > button {
+	width: 100%;
+}
+
 .change {
-  display: absolute;
+	display: block;
 }
 
 .change .bar {
@@ -232,11 +185,6 @@ nav ul li .dropdown a:hover {
 
 .change #bar3 {
   transform: translateY(-6px) rotateZ(45deg);
-}
-
-.change-bg {
-  width: 100%;
-  height: 500px;
 }
 
 .logo {
@@ -266,7 +214,7 @@ nav ul li .dropdown a:hover {
 
 #logo {
 	display: block;
-	width: 33%;
+	width: 40%;
 	transition: 0.7s;
 }
 
@@ -287,7 +235,7 @@ nav ul li .dropdown a:hover {
   border-radius: 5px;
 }
 
-#join {
+#join-btn {
   padding: 15px 32px;
 	background: linear-gradient(to right, #0091FE,  #82C836);
 	border: none;
@@ -295,21 +243,18 @@ nav ul li .dropdown a:hover {
   color: #2F3135;
 }
 
-#join:hover {
+#join-btn:hover {
 	background: linear-gradient(to right, rgba(0, 145, 254, 0.5),  rgba(130, 200, 54, 0.5));
 }
 
-#login {
+#login-btn {
 	background-color: transparent;
 	border-color: #82C836;
-}
-
-#login {
 	text-decoration: none;
 	color: #82C836;
 }
 
-#login:hover {
+#login-btn:hover {
 	border-color: rgba(130, 200, 54, 0.5);
 	color: rgba(130, 200, 54, 0.5);
 }

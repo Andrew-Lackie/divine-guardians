@@ -5,13 +5,10 @@ class Header extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
 
-		<nav id="ul">
+		<nav id="nav-bar">
 				<ul>
-					<li>
-						<a href="../index.html">Home</a>
-					</li>
 
-					<li id="courses">
+					<li class="list-items" id="courses">
 
 							<button type="button">Courses</button>
 							<div class="dropdown" id="dropdown-courses">
@@ -24,7 +21,7 @@ class Header extends HTMLElement {
 					</li>
 
 
-					<li id="about">
+					<li class="list-items" id="about">
 
 						<button type="button">About</button>
 						<div class="dropdown" id="dropdown-about">
@@ -36,7 +33,7 @@ class Header extends HTMLElement {
 					</li>
 
 
-					<li id="resources">
+					<li class="list-items" id="resources">
 							<button type="button">Resources</button>
 						<div class="dropdown" id="dropdown-resources">
 
@@ -63,22 +60,28 @@ class Header extends HTMLElement {
 					</div>
 
 					<div id="menu">
-						<div id="menu-bar" onclick="menuOnClick()">
-							<div id="bar1" class="bar"></div>
-							<div id="bar2" class="bar"></div>
-							<div id="bar3" class="bar"></div>
-						</div>
-						<nav class="nav" id="nav">
+						<button id="menu-select">
+							<div id="menu-bar">
+									<div id="bar1" class="bar"></div>
+									<div id="bar2" class="bar"></div>
+									<div id="bar3" class="bar"></div>
+							</div>
+						</button>
+					</div>
+
+					<div class="menu-bg" id="menu-bg">
+
+						<div class="nav" id="nav">
 							<ul>
 								<li><a href="#">Home</a></li>
 								<li><a href="#">About</a></li>
 								<li><a href="#">Contact</a></li>
 								<li><a href="#">Blog</a></li>
+								<li><button type="button">Logout</button></li>
 							</ul>
-						</nav>
-					</div>
+						</div>
 
-					<div class="menu-bg" id="menu-bg"></div>
+					</div>
 
 
 				</div>
@@ -86,16 +89,16 @@ class Header extends HTMLElement {
 
 		<div id="logo-container" class="logo-container">
 			<div class="logo-child-container">
-					<img id="logo" src="../images/dg-logo.png" alt="Logo">
+					<a href="../index.html"><img id="logo" src="../images/dg-logo.png" alt="Logo"></a>
 			</div>
 			<div id="handwriting" class="logo-child-container">
 				<img src="../images/divine-guardians-handwriting.png" alt="">
 			</div>
-			<div id="btn" class="hero-btn">
+			<div id="hero-btn" class="hero-btn">
 
 				<div class="btn-container">
-					<a id="join" href="pages/register-page.html">Join</a>
-					<a id="login" href="pages/login-page.html">Login</a>
+					<a id="join-btn" href="pages/login-page.html">Join</a>
+					<a id="login-btn" href="pages/login-page.html">Login</a>
 				</div>
 			</div>
 
@@ -110,120 +113,136 @@ class Header extends HTMLElement {
 
 customElements.define('header-component', Header);
 
-function menuOnClick() {
-  document.getElementById('menu-bar').classList.toggle('change');
-  document.getElementById('nav').classList.toggle('change');
-  document.getElementById('menu-bg').classList.toggle('change-bg');
-}
-
 window.addEventListener('load', (event) => {
-  const courses = document.getElementById('courses');
-  const about = document.getElementById('about');
-  const resources = document.getElementById('resources');
-  const ul = document.getElementById('ul');
+  const courses = document.getElementById('dropdown-courses');
+  const about = document.getElementById('dropdown-about');
+  const resources = document.getElementById('dropdown-resources');
+  const listItems = document.querySelectorAll('.list-items');
+  const dropdown = document.querySelectorAll('.dropdown');
+  const join = document.getElementById('join-btn');
+  const login = document.getElementById('login-btn');
+  const title = document.title;
+  const pageTitles = ['dashboard', 'login'];
+  const menuSelect = document.getElementById('menu-select');
+  const menuBg = document.getElementById('menu-bg');
+  const navBar = document.getElementById('nav-bar');
+
+  menuBg.style.display = 'none';
+  menuSelect.addEventListener('click', (event) => {
+    if (menuBg.style.display == 'none') {
+      document.getElementById('menu-bar').classList.toggle('change');
+      document.getElementById('nav').classList.toggle('change');
+      menuBg.style.display = 'block';
+      menuBg.style.margin = '0';
+      navBar.style.height = '250px';
+    } else {
+      document.getElementById('menu-bar').classList.toggle('change');
+      document.getElementById('nav').classList.toggle('change');
+      menuBg.style.display = 'none';
+      navBar.style.height = '40px';
+    }
+  });
+
+  function minimizeMenu() {
+    pageTitles.forEach((item, index) => {
+      if (title == pageTitles[index]) {
+        document.getElementById('logo').style.width = '20%';
+        document.getElementById('handwriting').style.display = 'none';
+        document.getElementById('hero-btn').style.display = 'none';
+        document.getElementById('logo-container').style.height = '80px';
+      }
+    });
+  }
 
   function menuLoadSmall() {
-    courses.addEventListener('mouseover', (e) => {
-      document.getElementById('logo').style.display = 'none';
-      document.getElementById('handwriting').style.display = 'none';
-      document.getElementById('btn').style.display = 'none';
-      document.getElementById('logo-container').style.height = '80px';
-    });
+    listItems.forEach((item, index) => {
+      item.addEventListener('click', (e) => {
+        let itemList;
+        if (index == 0) {
+          itemList = courses;
+        } else if (index == 1) {
+          itemList = about;
+        } else {
+          itemList = resources;
+        }
+        itemList.style.display = 'block';
+        itemList.style.zIndex = '2';
+        itemList.style.position = 'fixed';
+        itemList.style.width = '100vw';
+        itemList.style.height = '80px';
+        itemList.style.marginTop = '9px';
+        itemList.style.marginLeft = '0px';
+      });
 
-    ul.addEventListener('mouseout', (e) => {
-      document.getElementById('logo').style.width = '20%';
-      document.getElementById('logo').style.display = 'block';
-      document.getElementById('handwriting').style.display = 'none';
-      document.getElementById('btn').style.display = 'none';
-      document.getElementById('logo-container').style.height = 'auto';
-    });
-
-    about.addEventListener('mouseover', (e) => {
-      document.getElementById('logo').style.display = 'none';
-      document.getElementById('handwriting').style.display = 'none';
-      document.getElementById('btn').style.display = 'none';
-      document.getElementById('logo-container').style.height = '80px';
-    });
-
-    ul.addEventListener('mouseout', (e) => {
-      document.getElementById('logo').style.width = '20%';
-      document.getElementById('logo').style.display = 'block';
-      document.getElementById('handwriting').style.display = 'none';
-      document.getElementById('btn').style.display = 'none';
-      document.getElementById('logo-container').style.height = 'auto';
-    });
-
-    resources.addEventListener('mouseover', (e) => {
-      document.getElementById('logo').style.display = 'none';
-      document.getElementById('handwriting').style.display = 'none';
-      document.getElementById('btn').style.display = 'none';
-      document.getElementById('logo-container').style.height = '80px';
-    });
-
-    ul.addEventListener('mouseout', (e) => {
-      document.getElementById('logo').style.width = '20%';
-      document.getElementById('logo').style.display = 'block';
-      document.getElementById('handwriting').style.display = 'none';
-      document.getElementById('btn').style.display = 'none';
-      document.getElementById('logo-container').style.height = 'auto';
+      dropdown.forEach((item) => {
+        item.addEventListener('mouseleave', (e) => {
+          document.getElementById('logo').style.width = '20%';
+          document.getElementById('logo').style.display = 'block';
+          document.getElementById('handwriting').style.display = 'none';
+          document.getElementById('hero-btn').style.display = 'none';
+          document.getElementById('logo-container').style.height = '80px';
+          item.style.display = 'none';
+        });
+      });
     });
   }
-
   function menuLoadBig() {
-    courses.addEventListener('mouseover', (e) => {
-      document.getElementById('logo').style.display = 'none';
-      document.getElementById('handwriting').style.display = 'none';
-      document.getElementById('btn').style.display = 'none';
-      document.getElementById('logo-container').style.height = '80px';
-    });
+    listItems.forEach((item, index) => {
+      item.addEventListener('click', (e) => {
+        document.getElementById('logo-container').style.height = '80px';
+        document.getElementById('logo').style.display = 'none';
+        document.getElementById('handwriting').style.display = 'none';
+        document.getElementById('hero-btn').style.display = 'none';
+        let itemList;
+        let noneStyle;
+        if (index == 0) {
+          itemList = courses;
+          noneStyle = [about, resources];
+        } else if (index == 1) {
+          itemList = about;
+          noneStyle = [courses, resources];
+        } else {
+          itemList = resources;
+          noneStyle = [courses, about];
+        }
+        itemList.style.display = 'block';
+        noneStyle[0].style.display = 'none';
+        noneStyle[1].style.display = 'none';
+        itemList.style.zIndex = '2';
+        itemList.style.position = 'fixed';
+        itemList.style.width = '100vw';
+        itemList.style.height = '80px';
+        itemList.style.marginTop = '9px';
+        itemList.style.marginLeft = '0px';
+      });
 
-    ul.addEventListener('mouseout', (e) => {
-      document.getElementById('logo').style.display = 'block';
-      document.getElementById('logo').style.width = '40%';
-      document.getElementById('handwriting').style.display = 'block';
-      document.getElementById('btn').style.display = 'block';
-      document.getElementById('logo-container').style.height = '350px';
-    });
-
-    about.addEventListener('mouseover', (e) => {
-      document.getElementById('logo').style.display = 'none';
-      document.getElementById('handwriting').style.display = 'none';
-      document.getElementById('btn').style.display = 'none';
-      document.getElementById('logo-container').style.height = '80px';
-    });
-
-    ul.addEventListener('mouseout', (e) => {
-      document.getElementById('logo').style.display = 'block';
-      document.getElementById('logo').style.width = '40%';
-      document.getElementById('handwriting').style.display = 'block';
-      document.getElementById('btn').style.display = 'block';
-      document.getElementById('logo-container').style.height = '350px';
-    });
-
-    resources.addEventListener('mouseover', (e) => {
-      document.getElementById('logo').style.display = 'none';
-      document.getElementById('handwriting').style.display = 'none';
-      document.getElementById('btn').style.display = 'none';
-      document.getElementById('logo-container').style.height = '80px';
-    });
-
-    ul.addEventListener('mouseout', (e) => {
-      document.getElementById('logo').style.display = 'block';
-      document.getElementById('logo').style.width = '40%';
-      document.getElementById('handwriting').style.display = 'block';
-      document.getElementById('btn').style.display = 'block';
-      document.getElementById('logo-container').style.height = '350px';
+      dropdown.forEach((item) => {
+        item.addEventListener('mouseleave', (e) => {
+          document.getElementById('logo-container').style.display = 'block';
+          document.getElementById('logo').style.display = 'block';
+          document.getElementById('logo').style.width = '40%';
+          document.getElementById('handwriting').style.display = 'block';
+          document.getElementById('hero-btn').style.display = 'block';
+          document.getElementById('logo-container').style.height = '350px';
+          item.style.display = 'none';
+          minimizeMenu();
+        });
+      });
     });
   }
+  window.onscroll = function () {
+    scrollFunction();
+    minimizeMenu();
+  };
 
+  minimizeMenu();
   menuLoadSmall();
   menuLoadBig();
 
-  window.onscroll = function () {
-    scrollFunction();
-  };
-
   function scrollFunction() {
+    courses.style.display = 'none';
+    about.style.display = 'none';
+    resources.style.display = 'none';
     if (
       document.body.scrollTop > 100 ||
       document.documentElement.scrollTop > 100
@@ -231,7 +250,7 @@ window.addEventListener('load', (event) => {
       document.getElementById('logo').style.width = '20%';
       document.getElementById('logo').style.display = 'block';
       document.getElementById('handwriting').style.display = 'none';
-      document.getElementById('btn').style.display = 'none';
+      document.getElementById('hero-btn').style.display = 'none';
       document.getElementById('logo-container').style.height = '80px';
 
       menuLoadSmall();
@@ -239,16 +258,18 @@ window.addEventListener('load', (event) => {
       document.getElementById('logo').style.display = 'block';
       document.getElementById('logo').style.width = '40%';
       document.getElementById('handwriting').style.display = 'block';
-      document.getElementById('btn').style.display = 'block';
+      document.getElementById('hero-btn').style.display = 'block';
       document.getElementById('logo-container').style.height = '350px';
 
       menuLoadBig();
     }
   }
 
-  /*function navOnHover() {*/
-  /*document.getElementById('handwriting').style.display = 'block';*/
-  /*document.getElementById('btn').style.display = 'block';*/
-  /*document.getElementById('logo-container').style.height = '350px';*/
-  /*}*/
+  /*login.addEventListener('click', (e) => {*/
+  /*localStorage.setItem('login', 1);*/
+  /*});*/
+
+  /*join.addEventListener('click', (e) => {*/
+  /*localStorage.setItem('join', 1);*/
+  /*});*/
 });

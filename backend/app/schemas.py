@@ -16,6 +16,7 @@ class UserBase(BaseModel):
 
 
 class UserCreate(BaseModel):
+    id: Optional[str]
     fname: str
     lname: str
     email: EmailStr
@@ -23,7 +24,7 @@ class UserCreate(BaseModel):
 
 
 class UserOut(BaseModel):
-    id: int
+    id: str
     email: EmailStr
     created_at: datetime
 
