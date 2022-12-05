@@ -42,7 +42,7 @@ registerToggleBtn.addEventListener('click', function () {
   loginToggle.style.left = '450px';
   registerToggle.style.left = '50px';
   toggleBtn.style.left = '125px';
-  formBox.style.height = '650px';
+  formBox.style.height = '750px';
   formBox.style.margin = '10% auto';
 });
 

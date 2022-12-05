@@ -20,6 +20,7 @@ class UserCreate(BaseModel):
     fname: str
     lname: str
     email: EmailStr
+    username: str
     password: str
 
 

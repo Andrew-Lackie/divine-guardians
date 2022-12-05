@@ -5,6 +5,11 @@ class Header extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
 
+		<script src="../js/auth.js"></script>
+		<script src="../js/init.js"></script>
+
+		<div header-container>
+
 		<nav id="nav-bar">
 				<ul>
 
@@ -77,7 +82,7 @@ class Header extends HTMLElement {
 								<li><a href="#">About</a></li>
 								<li><a href="#">Contact</a></li>
 								<li><a href="#">Blog</a></li>
-								<li><button type="button">Logout</button></li>
+								<li><button class="logout" type="button">Logout</button></li>
 							</ul>
 						</div>
 
@@ -106,6 +111,7 @@ class Header extends HTMLElement {
 
 
 		</div>
+	</div>
 
 `;
   }
@@ -119,13 +125,32 @@ window.addEventListener('load', (event) => {
   const resources = document.getElementById('dropdown-resources');
   const listItems = document.querySelectorAll('.list-items');
   const dropdown = document.querySelectorAll('.dropdown');
-  const join = document.getElementById('join-btn');
-  const login = document.getElementById('login-btn');
   const title = document.title;
   const pageTitles = ['dashboard', 'login'];
   const menuSelect = document.getElementById('menu-select');
   const menuBg = document.getElementById('menu-bg');
   const navBar = document.getElementById('nav-bar');
+  const logo = document.getElementById('logo');
+  const handwriting = document.getElementById('handwriting');
+  const heroBtn = document.getElementById('hero-btn');
+  const logoContainer = document.getElementById('logo-container');
+  const ul = document.querySelector('ul');
+  const logout = document.querySelector('.logout');
+  const token = localStorage.getItem('token');
+
+  function logOut() {
+    logout.addEventListener('click', (e) => {
+      localStorage.removeItem('token');
+      localStorage.removeItem('token_type');
+      window.location.replace('login-page.html');
+    });
+  }
+
+  if (token == null) {
+    logout.textContent = 'Login';
+  } else {
+    logout.textContent = 'logout';
+  }
 
   menuBg.style.display = 'none';
   menuSelect.addEventListener('click', (event) => {
@@ -146,10 +171,12 @@ window.addEventListener('load', (event) => {
   function minimizeMenu() {
     pageTitles.forEach((item, index) => {
       if (title == pageTitles[index]) {
-        document.getElementById('logo').style.width = '20%';
-        document.getElementById('handwriting').style.display = 'none';
-        document.getElementById('hero-btn').style.display = 'none';
-        document.getElementById('logo-container').style.height = '80px';
+        logo.style.width = '20%';
+        logo.style.display = 'block';
+        handwriting.style.display = 'none';
+        heroBtn.style.display = 'none';
+        logoContainer.style.height = '80px';
+        ul.style.paddingLeft = '40px';
       }
     });
   }
@@ -176,11 +203,12 @@ window.addEventListener('load', (event) => {
 
       dropdown.forEach((item) => {
         item.addEventListener('mouseleave', (e) => {
-          document.getElementById('logo').style.width = '20%';
-          document.getElementById('logo').style.display = 'block';
-          document.getElementById('handwriting').style.display = 'none';
-          document.getElementById('hero-btn').style.display = 'none';
-          document.getElementById('logo-container').style.height = '80px';
+          logo.style.width = '20%';
+          logo.style.display = 'block';
+          handwriting.style.display = 'none';
+          heroBtn.style.display = 'none';
+          logoContainer.style.height = '80px';
+          //ul.style.paddingLeft = '40px';
           item.style.display = 'none';
         });
       });
@@ -189,10 +217,11 @@ window.addEventListener('load', (event) => {
   function menuLoadBig() {
     listItems.forEach((item, index) => {
       item.addEventListener('click', (e) => {
-        document.getElementById('logo-container').style.height = '80px';
-        document.getElementById('logo').style.display = 'none';
-        document.getElementById('handwriting').style.display = 'none';
-        document.getElementById('hero-btn').style.display = 'none';
+        logo.style.width = '20%';
+        logo.style.display = 'none';
+        handwriting.style.display = 'none';
+        heroBtn.style.display = 'none';
+        logoContainer.style.height = '80px';
         let itemList;
         let noneStyle;
         if (index == 0) {
@@ -218,12 +247,12 @@ window.addEventListener('load', (event) => {
 
       dropdown.forEach((item) => {
         item.addEventListener('mouseleave', (e) => {
-          document.getElementById('logo-container').style.display = 'block';
-          document.getElementById('logo').style.display = 'block';
-          document.getElementById('logo').style.width = '40%';
-          document.getElementById('handwriting').style.display = 'block';
-          document.getElementById('hero-btn').style.display = 'block';
-          document.getElementById('logo-container').style.height = '350px';
+          logoContainer.style.display = 'block';
+          logo.style.display = 'block';
+          logo.style.width = '40%';
+          handwriting.style.display = 'block';
+          heroBtn.style.display = 'block';
+          logoContainer.style.height = '350px';
           item.style.display = 'none';
           minimizeMenu();
         });
@@ -247,29 +276,23 @@ window.addEventListener('load', (event) => {
       document.body.scrollTop > 100 ||
       document.documentElement.scrollTop > 100
     ) {
-      document.getElementById('logo').style.width = '20%';
-      document.getElementById('logo').style.display = 'block';
-      document.getElementById('handwriting').style.display = 'none';
-      document.getElementById('hero-btn').style.display = 'none';
-      document.getElementById('logo-container').style.height = '80px';
+      logo.style.width = '20%';
+      logo.style.display = 'block';
+      handwriting.style.display = 'none';
+      heroBtn.style.display = 'none';
+      logoContainer.style.height = '80px';
 
       menuLoadSmall();
     } else {
-      document.getElementById('logo').style.display = 'block';
-      document.getElementById('logo').style.width = '40%';
-      document.getElementById('handwriting').style.display = 'block';
-      document.getElementById('hero-btn').style.display = 'block';
-      document.getElementById('logo-container').style.height = '350px';
+      logoContainer.style.display = 'block';
+      logo.style.display = 'block';
+      logo.style.width = '40%';
+      handwriting.style.display = 'block';
+      heroBtn.style.display = 'block';
+      logoContainer.style.height = '350px';
 
       menuLoadBig();
     }
   }
-
-  /*login.addEventListener('click', (e) => {*/
-  /*localStorage.setItem('login', 1);*/
-  /*});*/
-
-  /*join.addEventListener('click', (e) => {*/
-  /*localStorage.setItem('join', 1);*/
-  /*});*/
+  logOut();
 });

@@ -22,6 +22,7 @@ class Register {
           fname: document.querySelector('#fname').value,
           lname: document.querySelector('#lname').value,
           email: document.querySelector('#new-email').value,
+          username: document.querySelector('#new-username').value,
           password: document.querySelector('#new-password').value,
         };
         localStorage.setItem('fname', data.fname);
@@ -103,6 +104,7 @@ if (register) {
     'fname',
     'lname',
     'new-email',
+    'new-username',
     'new-password',
     'confirm-password',
   ];

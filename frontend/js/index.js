@@ -128,6 +128,4 @@ prevBtn.addEventListener('click', function () {
   updateRight(currentItemRight);
 });
 
-fetch('http://127.0.0.1:8000/users/8')
-  .then((response) => response.json())
-  .then((data) => console.log(data));
+
