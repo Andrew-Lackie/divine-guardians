@@ -2,11 +2,12 @@ import os
 import requests
 import json
 import time
+from dotenv import load_dotenv
 
+load_dotenv()
 
 CLIENT_ID = os.environ.get("ADOBE_CLIENT_ID")
 TOKEN = os.environ.get("ADOBE_TOKEN")
-
 
 def get_asset():
     url = "https://pdf-services.adobe.io/assets"
@@ -23,6 +24,7 @@ def get_asset():
     response = requests.post(url=url, headers=headers, json=data)
 
     json_response = json.loads(response.text)
+    print(json_response)
     status_code = response.status_code
     uploadUri = json_response["uploadUri"]
     assetId = json_response["assetID"]

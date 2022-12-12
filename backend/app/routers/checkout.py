@@ -11,12 +11,8 @@ from fastapi import (
 )
 from sqlalchemy.orm import Session
 from typing import Optional, List
-from .. import models, schemas, utils
-from ..database import engine, get_db
 
 router = APIRouter(prefix="/create_checkout_session", tags=["Checkout"])
-
-stripe.api_key = os.environ.get("STRIPE_KEY")
 
 
 # @router.post("/", status_code=status.HTTP_200_OK, response_model=schemas.UserOut)
