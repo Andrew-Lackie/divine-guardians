@@ -50,18 +50,20 @@ class Header extends HTMLElement {
 						</div>
 					</li>
 
+					<li class="list-items" id="blog">
+							<button type="button">Blog</button>
+					</li>
 
 				</ul>
-
-				
-
 	
 				<div class="user-menu"> 
+					<div class="theme-toggler">
+						<i class="active fa-solid fa-sun"></i>
+						<i class="fa-solid fa-moon"></i>
+					</div>
+
 					<div class="icon-container">
 						<i class="nav-icon fa-xl fa-regular fa-user"></i>
-					</div>
-					<div class="icon-container">
-						<i class="nav-icon fa-xl fa-solid fa-cart-shopping"></i>
 					</div>
 
 					<div id="menu">
@@ -126,7 +128,7 @@ window.addEventListener('load', (event) => {
   const listItems = document.querySelectorAll('.list-items');
   const dropdown = document.querySelectorAll('.dropdown');
   const title = document.title;
-  const pageTitles = ['dashboard', 'login'];
+  const pageTitles = ['dashboard', 'login', 'members'];
   const menuSelect = document.getElementById('menu-select');
   const menuBg = document.getElementById('menu-bg');
   const navBar = document.getElementById('nav-bar');
@@ -137,6 +139,13 @@ window.addEventListener('load', (event) => {
   const ul = document.querySelector('ul');
   const logout = document.querySelector('.logout');
   const token = localStorage.getItem('token');
+  const themeToggler = document.querySelector('.theme-toggler');
+
+  themeToggler.addEventListener('click', () => {
+    document.body.classList.toggle('dark-theme-variables');
+    themeToggler.querySelector('i:nth-child(2)').classList.toggle('active');
+    themeToggler.querySelector('i:nth-child(1)').classList.toggle('active');
+  });
 
   function logOut() {
     logout.addEventListener('click', (e) => {
@@ -273,8 +282,8 @@ window.addEventListener('load', (event) => {
     about.style.display = 'none';
     resources.style.display = 'none';
     if (
-      document.body.scrollTop > 100 ||
-      document.documentElement.scrollTop > 100
+      document.body.scrollTop > 10 ||
+      document.documentElement.scrollTop > 10
     ) {
       logo.style.width = '20%';
       logo.style.display = 'block';

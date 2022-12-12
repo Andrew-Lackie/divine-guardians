@@ -13,3 +13,5 @@ python-multipart
 cors
 python-dotenv
 stripe
+PyJWT
+requests

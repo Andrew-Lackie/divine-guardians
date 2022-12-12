@@ -8,6 +8,7 @@ from . import schemas, config
 from .config import settings
 
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="login")
+SECRET_KEY = os.environ.get("SECRET_KEY")
 
 
 @lru_cache
@@ -29,8 +30,6 @@ def create_access_token(data: dict):
 def verify_access_token(token: str, credentials_exception):
     try:
 
-        SECRET_KEY = os.environ.get("SECRET_KEY")
-
         payload = jwt.decode(token, SECRET_KEY, algorithms=[settings.ALGORITHM])
 
         id: str = payload.get("user_id")
@@ -49,7 +48,7 @@ def get_current_user(token: str = Depends(oauth2_scheme)):
     credentials_exception = HTTPException(
         status_code=status.HTTP_401_UNAUTHORIZED,
         detail=f"Could not validate credentials",
-        header={"WWW-Authenticate": "Bearer"},
+        headers={"WWW-Authenticate": "Bearer"},
     )
 
     return verify_access_token(token, credentials_exception)

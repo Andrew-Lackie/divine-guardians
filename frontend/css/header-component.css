@@ -2,13 +2,15 @@
 
 :root {
 --color-pink: #F49AC0;
+--color-purple: #9F86BF;
 --color-pink-faded: rgba(244, 154, 192, 0.1);
 --color-blue: #0091FE;
 --color-orange: #FFCF8D;
 --color-green: #82C836;
 --color-green-faded: rgba(130, 200, 54, 0.5);
 --color-white: #fff;
---color-dark: #363939;
+/*--color-dark: #363939;*/
+--color-dark: #2F3135;
 --color-background: #f6f6f9;
 
 --button-border-radius: 2rem;
@@ -57,17 +59,18 @@ nav ul {
 }
 
 nav ul li {
+	position: relative;
 	width: 100%;
 	display: inline;
-	margin-left: 6%;
-	margin-right: 6%;
+	left: 20vw;
+	padding-left: 10%;
 }
 
 nav ul li a {
 	font-weight: 700;
 	font-size: 1em;
 	text-decoration: none;
-	transition: 0.3s;
+	transition: 0.3s ease;
 }
 
 .dropdown > a {
@@ -76,12 +79,13 @@ nav ul li a {
 }
 
 nav ul li button {
+	color: var(--color-dark);
 	font-weight: 700;
 	font-size: 1em;
 	border: none;
 	background-color: transparent;
 	text-decoration: none;
-	transition: 0.3s;
+	transition: 0.3s ease;
 }
 
 .dropdown {
@@ -91,10 +95,11 @@ nav ul li button {
 }
 
 nav ul li .dropdown a {
+	position: relative;
 	text-align: center;
 	color: var(--color-background);
 	font-weight: 400;
-	padding-left: 70px;
+	padding-left: 3%;
 }
 
 nav ul li .dropdown a:hover {
@@ -109,9 +114,45 @@ nav ul li .dropdown a:hover {
 	white-space: nowrap;
 }
 
+.right .theme-toggler .active {
+	background: var(--color-purple);
+	color: white;
+	border-radius: var(--border-radius-1);
+}
+
+.user-menu .theme-toggler {
+	background: var(--color-light);
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	height: 1.6rem;
+	width: 4.2rem;
+	cursor: pointer;
+	border-radius: var(--border-radius-1);
+}
+
+.user-menu .theme-toggler i {
+	width: 50%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.user-menu .theme-toggler .fa-sun {
+	color: white;
+}
+
+.user-menu .theme-toggler .active {
+	background: var(--color-purple);
+	color: white;
+	border-radius: var(--border-radius-1);
+}
+
 .icon-container {
-	width: 15%;
+	position: absolute;
 	height: auto;
+	margin-right: 1%;
 	text-align: right;
 }
 
@@ -197,6 +238,7 @@ nav ul li .dropdown a:hover {
 }
 
 #menu-select {
+	display: none;
 	width: 100%;
 	background: transparent;
 	border: none;
@@ -247,13 +289,12 @@ nav ul li .dropdown a:hover {
 	text-align: center;
 	width: 100%;
 	padding-bottom: 1%;
-	transition: 0.4s;
 }
 
 #logo {
 	display: block;
 	width: 40%;
-	transition: 0.7s;
+	transition: all 500ms ease;
 }
 
 .hero-btn {

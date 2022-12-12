@@ -2,7 +2,9 @@ from datetime import datetime
 from pydantic import BaseModel, EmailStr
 from typing import Optional
 
-# User Schemas
+######################
+# --- User Schemas ---#
+######################
 
 
 class UserBase(BaseModel):
@@ -51,6 +53,11 @@ class UserLogin(BaseModel):
     password: str
 
 
+#######################
+# --- Login Schemas ---#
+#######################
+
+
 class Token(BaseModel):
     access_token: str
     token_type: str
@@ -60,7 +67,9 @@ class TokenData(BaseModel):
     id: Optional[str] = None
 
 
-# Course Schemas
+########################
+# --- Course Schemas ---#
+########################
 
 
 class CourseBase(BaseModel):
@@ -89,3 +98,50 @@ class CourseOut(CourseBase):
 
     class Config:
         orm_mode = True
+
+
+##############################
+# --- Notice Board Schemas ---#
+##############################
+
+
+class BoardBase(BaseModel):
+    pdf_path = str
+    country = str
+    state = str
+    city = str
+
+    class Config:
+        orm_mode = True
+
+
+#######################
+# --- Form Schemas ---#
+#######################
+
+
+class FormBase(BaseModel):
+    user_id: str
+    form_id: int
+
+    class Config:
+        orm_mode = True
+
+
+class FormCreate(FormBase):
+    pass
+
+
+class FormOut(FormBase):
+    created_at: datetime
+
+    class Config:
+        orm_mode = True
+
+
+class FormDelete(FormBase):
+    pass
+
+
+class FormUpdate(BaseModel):
+    pass

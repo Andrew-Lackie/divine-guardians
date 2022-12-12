@@ -2,7 +2,7 @@ import stripe
 from fastapi import FastAPI, Response, status, HTTPException, Depends, APIRouter
 from sqlalchemy.orm import Session
 from typing import Optional, List
-from .. import models, schemas, utils
+from .. import models, schemas, utils, oauth2
 from ..database import engine, get_db
 
 router = APIRouter(prefix="/users", tags=["Users"])
@@ -11,7 +11,10 @@ stripe.api_key = "STRIPE_KEY"
 
 
 @router.post("/", status_code=status.HTTP_201_CREATED, response_model=schemas.UserOut)
-def create_user(user: schemas.UserCreate, db: Session = Depends(get_db)):
+def create_user(
+    user: schemas.UserCreate,
+    db: Session = Depends(get_db),
+):
     email = db.query(models.User).filter(models.User.email == user.email).first()
 
     if email:
@@ -41,7 +44,13 @@ def create_user(user: schemas.UserCreate, db: Session = Depends(get_db)):
 
 
 @router.get("/{id}", response_model=schemas.UserOut)
-def get_user(id: int, db: Session = Depends(get_db)):
+def get_user(
+    id: str,
+    db: Session = Depends(get_db),
+    user: str = Depends(oauth2.get_current_user),
+):
+
+    utils.verify_user(id, user)
     user = db.query(models.User).filter(models.User.id == id).first()
 
     if not user:
@@ -54,13 +63,19 @@ def get_user(id: int, db: Session = Depends(get_db)):
 
 
 @router.put("/{id}")
-def update_user(user: schemas.UserUpdate, id: str, db: Session = Depends(get_db)):
+def update_user(
+    user_att: schemas.UserUpdate,
+    id: str,
+    db: Session = Depends(get_db),
+    user: str = Depends(oauth2.get_current_user),
+):
+    print(id, user.id)
+    utils.verify_user(id, user)
     user_query = db.query(models.User).filter(models.User.id == id)
     for attribute in user_query:
         fname = attribute.fname
         lname = attribute.lname
         email = attribute.email
-        address = attribute.address
         membership = attribute.membership
         password = attribute.password
         created_at = attribute.created_at
@@ -71,22 +86,19 @@ def update_user(user: schemas.UserUpdate, id: str, db: Session = Depends(get_db)
             detail=f"User with id: {id} does not exist",
         )
 
-    if user.fname != None:
+    if user_att.fname != None:
         fname = user.fname
 
-    if user.lname != None:
+    if user_att.lname != None:
         lname = user.lname
 
-    if user.email != None:
+    if user_att.email != None:
         email = user.email
 
-    if user.address != None:
-        address = user.address
-
-    if user.membership != None:
+    if user_att.membership != None:
         membership = user.membership
 
-    if user.password != None:
+    if user_att.password != None:
         password = user.password
 
     stripe.Customer.modify(id, email=email)
@@ -97,7 +109,6 @@ def update_user(user: schemas.UserUpdate, id: str, db: Session = Depends(get_db)
             "fname": fname,
             "lname": lname,
             "email": email,
-            "address": address,
             "membership": membership,
             "password": password,
             "created_at": created_at,
@@ -112,7 +123,13 @@ def update_user(user: schemas.UserUpdate, id: str, db: Session = Depends(get_db)
 
 
 @router.delete("/{id}", status_code=status.HTTP_204_NO_CONTENT)
-def delete_user(id: str, db: Session = Depends(get_db)):
+def delete_user(
+    id: str,
+    db: Session = Depends(get_db),
+    user: str = Depends(oauth2.get_current_user),
+):
+    utils.verify_user(id, user)
+
     user = db.query(models.User).filter(models.User.id == id)
     for attribute in user:
         user_name = attribute.fname

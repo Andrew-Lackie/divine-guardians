@@ -18,11 +18,7 @@ from ..database import engine, get_db
 router = APIRouter(tags=["Webhooks"])
 
 
-@router.post(
-    "/stripe_webhooks"
-    #     ,status_code=status.HTTP_200_SUCCESS,
-    # response_model=schemas.StripeOut,
-)
+@router.post("/stripe_webhooks")
 async def webhook(
     request: Request, stripe_signature: str = Header(str), db: Session = Depends(get_db)
 ):
