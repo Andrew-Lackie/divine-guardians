@@ -3,16 +3,31 @@ import requests
 import json
 import time
 from dotenv import load_dotenv
+from adobe_jwt import get_jwt, verify_token
 
 load_dotenv()
 
 CLIENT_ID = os.environ.get("ADOBE_CLIENT_ID")
-TOKEN = os.environ.get("ADOBE_TOKEN")
+
+# Generates JWT and access tokens
+
+global access_token, jwttoken
+
+access_token, jwttoken = get_jwt()
+
 
 def get_asset():
+
+    # Verify JWT validity. If invalid, then generates another set of JWT and access tokens.
+
+    status = verify_token(jwttoken)
+
+    if status == "invalid":
+        access_token, jwttoken = get_jwt()
+
     url = "https://pdf-services.adobe.io/assets"
     headers = {
-        "Authorization": f"Bearer {TOKEN}",
+        "Authorization": f"Bearer {access_token}",
         "X-API-Key": CLIENT_ID,
         "Content-Type": "application/json",
     }
@@ -59,7 +74,7 @@ def generate_pdf():
     data.update(params)
     url = "https://pdf-services.adobe.io/operation/documentgeneration"
     headers = {
-        "Authorization": f"Bearer {TOKEN}",
+        "Authorization": f"Bearer {access_token}",
         "X-API-Key": CLIENT_ID,
         "Content-Type": "application/json",
     }
@@ -74,10 +89,11 @@ def generate_pdf():
 
 
 def downloadFile():
+
     url = generate_pdf()
 
     headers = {
-        "Authorization": f"Bearer {TOKEN}",
+        "Authorization": f"Bearer {access_token}",
         "X-API-Key": CLIENT_ID,
     }
 
