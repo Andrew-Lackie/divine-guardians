@@ -6,9 +6,7 @@ from cryptography import x509
 from cryptography.hazmat.backends import default_backend
 import os
 import requests
-from dotenv import load_dotenv, find_dotenv, dotenv_values
-
-load_dotenv()
+from dotenv import dotenv_values
 
 config = dotenv_values("../.env")
 
@@ -17,8 +15,7 @@ CLIENT_SECRET = config["ADOBE_CLIENT_SECRET"]
 ALGORITHM = "RS256"
 
 
-def verify_token():
-    access_token, jwttoken = get_jwt()
+def verify_token(token):
     try:
         keyfile = open(
             os.path.join(os.path.expanduser("~"), ".ssh/certificate_pub.crt"), "r"
@@ -31,7 +28,7 @@ def verify_token():
         decoded = json.loads(
             json.dumps(
                 jwt.decode(
-                    jwttoken,
+                    token,
                     public_key,
                     audience="https://ims-na1.adobelogin.com/c/79d4a736cf0644a9a0ad0974169805c4",
                     algorithms=[ALGORITHM],
@@ -80,6 +77,3 @@ def get_jwt():
     print("\n")
 
     return resultjson["access_token"], jwttoken
-
-
-verify_token()
