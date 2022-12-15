@@ -14,6 +14,7 @@ from typing import Optional, List
 
 router = APIRouter(prefix="/create_checkout_session", tags=["Checkout"])
 
+stripe.api_key = os.environ.get("STRIPE_KEY")
 
 # @router.post("/", status_code=status.HTTP_200_OK, response_model=schemas.UserOut)
 @router.post("/")
@@ -22,8 +23,8 @@ async def create_checkout_session(request: Request):
     data = await request.json()
     print(data)
     checkout_session = stripe.checkout.Session.create(
-        success_url="http://localhost/web_dev/professional/divine-guardians/divine-guardians/frontend/pages/success.html?session_id={CHECKOUT_SESSION_ID}",
-        cancel_url="http://localhost/web_dev/professional/divine-guardians/divine-guardians/frontend/pages/cancel.html",
+        success_url="http://localhost/dev/professional/divine-guardians/divine-guardians/frontend/pages/success.html?session_id={CHECKOUT_SESSION_ID}",
+        cancel_url="http://localhost/dev/professional/divine-guardians/divine-guardians/frontend/pages/cancel.html",
         payment_method_types=["card"],
         mode="subscription",
         customer=data["userId"],

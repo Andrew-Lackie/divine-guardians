@@ -2,28 +2,44 @@ import os
 import requests
 import json
 import time
-from dotenv import load_dotenv
 from adobe_jwt import get_jwt, verify_token
+from dotenv import dotenv_values
+from dotenv import load_dotenv
 
 load_dotenv()
 
-CLIENT_ID = os.environ.get("ADOBE_CLIENT_ID")
+CLIENT_ID = os.environ["ADOBE_CLIENT_ID"]
 
 # Generates JWT and access tokens
 
-global access_token, jwttoken
+def verify_env():
 
-access_token, jwttoken = get_jwt()
+    prev_env = dotenv_values(".env")
+    access_token = prev_env["ADOBE_ACCESS_TOKEN"]
+    jwt_token = prev_env["ADOBE_JWT_TOKEN"]
+
+    status = verify_token(jwt_token)
+
+    print(status["status"])
+
+    if status["status"] == "invalid":
+        print("Tokens are expired. Fetching new tokens...")
+        new_access_token, new_jwt_token = get_jwt()
+
+        with open("../.env", "r") as f:
+            lines = f.readlines()[:-2]
+            lines.append(f'ADOBE_JWT_TOKEN="{new_jwt_token}"')
+            lines.append(f'\nADOBE_ACCESS_TOKEN="{new_access_token}"')
+            with open("../.env", "w") as file:
+                file.writelines(lines)
+
+        return new_jwt_token, new_access_token
+
+    else:
+        return access_token
 
 
-def get_asset():
-
-    # Verify JWT validity. If invalid, then generates another set of JWT and access tokens.
-
-    status = verify_token(jwttoken)
-
-    if status == "invalid":
-        access_token, jwttoken = get_jwt()
+def get_asset(access_token):
 
     url = "https://pdf-services.adobe.io/assets"
     headers = {
@@ -39,17 +55,13 @@ def get_asset():
     response = requests.post(url=url, headers=headers, json=data)
 
     json_response = json.loads(response.text)
-    print(json_response)
     status_code = response.status_code
     uploadUri = json_response["uploadUri"]
-    assetId = json_response["assetID"]
-    print(uploadUri)
-    return uploadUri, assetId
+    assetID = json_response["assetID"]
+    return uploadUri, assetID
 
 
-def upload_asset():
-    url, assetID = get_asset()
-
+def upload_asset(url, assetID):
     headers = {
         "Content-Type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
     }
@@ -59,12 +71,10 @@ def upload_asset():
 
     response = requests.put(url=url, headers=headers, data=data)
 
-    print(assetID)
     return assetID
 
 
-def generate_pdf():
-    assetID = upload_asset()
+def generate_pdf(access_token, assetID):
 
     params = {"assetID": assetID}
 
@@ -84,13 +94,26 @@ def generate_pdf():
 
     time.sleep(5)
 
-    print(down_url)
     return down_url
 
 
-def downloadFile():
+def download_file():
 
-    url = generate_pdf()
+    # Verify JWT validity. If invalid, then generates another set of JWT and access tokens.
+
+    access_token = verify_env()
+
+    # Get asset
+
+    url, assetID = get_asset(access_token)
+
+    # Upload asset
+
+    assetID = upload_asset(url, assetID)
+
+    # Generate PDF
+
+    url = generate_pdf(access_token, assetID)
 
     headers = {
         "Authorization": f"Bearer {access_token}",
@@ -122,4 +145,4 @@ def downloadFile():
     return {"status": file.status_code}
 
 
-downloadFile()
+download_file()
