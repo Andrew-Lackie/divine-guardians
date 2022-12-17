@@ -1,27 +1,29 @@
+import os
 from fastapi import FastAPI, Response, status, HTTPException, Depends, APIRouter
 from sqlalchemy.orm import Session
 from typing import Optional, List
-import ..models, ..schemas, ..utils, ..oauth2
+from .. import models, schemas, utils, oauth2
 from ..database import engine, get_db
-from ..docs import adobe
+from ..docs.adobe import download_file
 
 router = APIRouter(prefix="/forms", tags=["Forms"])
 
-cwd = os.cwd()
-parent = os.path.dirname(cwd)
-user_files = os.join(parent, "docs")
+# cwd = os.path.cwd()
+# parent = os.path.dirname(cwd)
+# user_files = os.join(parent, "docs")
 
-print(user_files)
+# print(user_files)
 
 
 @router.post("/", status_code=status.HTTP_201_CREATED)
 def create_form(
     form: schemas.FormCreate,
     db: Session = Depends(get_db),
-    user: str = Depends(oauth2.get_current_user),
+    # user: str = Depends(oauth2.get_current_user),
 ):
 
-    utils.verify_user(form.user_id, user)
+    download_status = download_file(form.user_id, "salesOrderTemplate", 1)
+    # utils.verify_user(form.user_id, user)
 
     form_query = (
         db.query(models.User_Form)

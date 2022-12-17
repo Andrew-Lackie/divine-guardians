@@ -9,11 +9,12 @@ from cryptography.hazmat.backends import default_backend
 import os
 import requests
 from dotenv import dotenv_values
+from dotenv import load_dotenv
 
-config = dotenv_values(".env")
+load_dotenv()
 
-CLIENT_ID = config["ADOBE_CLIENT_ID"]
-CLIENT_SECRET = config["ADOBE_CLIENT_SECRET"]
+CLIENT_ID = os.environ["ADOBE_CLIENT_ID"]
+CLIENT_SECRET = os.environ["ADOBE_CLIENT_SECRET"]
 ALGORITHM = "RS256"
 
 
