@@ -1,0 +1,195 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;800&display=swap');
+
+:root {
+--color-primary: #9F86BF;
+--color-danger: #F59779;
+--color-success: #82C836;
+--color-warning: #ffbb55;
+--color-white: #fff;
+--color-info-dark: #7d8da1;
+--color-info-light: #dce1eb;
+--color-pink: #F49AC0;
+--color-blue: #0091FE;
+--color-blue-light: rgba(0, 145, 254, 0.18);
+--color-orange: #FFCF8D;
+--color-orange-light: rgba(255, 207, 141, 0.18);
+--color-green: #82C836;
+--color-green-light: rgba(130, 200, 54, 0.18);
+--color-dark: #2F3135;
+--color-light: rgba(132, 139,200, 0.18);
+--color-primary-variant: ##111e88;
+--color-dark-variant: #677483;
+--color-background: #f6f6f9;
+
+--card-border-radius: 2rem;
+--border-radius-1: 0.4rem;
+--border-radius-2: 0.8rem;
+--border-radius-3: 1.2rem;
+
+--card-padding: 1.8rem;
+--padding-1: 1.2rem;
+
+--box-shadow: 0 2rem 3rem var(--color-light);
+--box-shadow-green: 0 2rem 3rem var(--color-green-light);
+--box-shadow-blue: 0 2rem 3rem var(--color-blue-light);
+--box-shadow-orange: 0 2rem 3rem var(--color-orange-light);
+}
+
+/* ================= DARK THEME VARIABLES ================*/
+.dark-theme-variables {
+	--color-background: #181a1e;
+	--color-white: #202528;
+	--color-dark: #edeffd;
+	--color-dark-variant: #a3bdcc;
+	--color-light: #rgba(0, 0, 0, 0.4);
+	--box-shadow: 0 2rem 3rem var(--color-light);
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	outline: 0;
+	appearance: none;
+	border: 0;
+	text-decoration: none;
+	list-style: none;
+	box-sizing: border-box;
+}
+
+html {
+	font-size: 14px;
+}
+
+body {
+	width: 100vw;
+	height: 100vh;
+	font-family: poppins, sans-serif;
+	font-size: 0.88rem;
+	background: var(--color-background);
+	user-select: none;
+	overflow-x: hidden;
+	color: var(--color-dark);
+}
+
+.title {
+	display: flex;
+	background-color: rgba(0,0,0,0.1);
+	height: 70px;
+}
+
+.title a {
+	align-self: center;
+}
+
+.title a img {
+	width: 15rem;
+}
+
+.title h1 {
+	margin-left: 25%;
+	align-self: center;
+	color: var(--color-green);
+}
+
+.search-box-container {
+	display: flex;
+	margin-top: 10%;
+	align-content: center;
+	justify-content: center;
+	text-align: center;
+}
+
+.search-box-container form {
+	z-index: 2;
+	background: var(--color-white);
+	padding: var(--card-padding);
+	border-radius: var(--card-border-radius);
+	margin-top: 1rem;
+	box-shadow: var(--box-shadow);
+	transition: all 300ms ease;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.search-box-container form .select-dropdown,
+.search-box-container form .select-dropdown * {
+  margin: 0;
+  padding: 0;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.search-box-container form .select-dropdown {
+	margin-top: 1rem;
+  position: relative;
+  background-color: #E6E6E6;
+  border-radius: 4px;
+}
+
+.search-box-container form .select-dropdown select {
+  font-size: 1.0rem;
+  font-weight: normal;
+	font-family: poppins, sans-serif;
+  max-width: 100%;
+  width: 100%;
+  padding: 8px 24px 8px 10px;
+  border: none;
+  background-color: transparent;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+  appearance: none;
+}
+
+.search-box-container form .select-dropdown select:active, .select-dropdown select:focus {
+  outline: none;
+  box-shadow: none;
+}
+.search-box-container .select-dropdown:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 8px;
+  width: 0;
+  height: 0;
+  margin-top: -2px;
+  border-top: 5px solid #aaa;
+  border-right: 5px solid transparent;
+  border-left: 5px solid transparent;
+}
+
+.search-box-container form input {
+	font-family: poppins, sans-serif;
+	color: var(--color-dark);
+	background: var(--color-light);
+	padding: 0.5rem 1rem 0.5rem 1rem;
+	cursor: pointer;
+	border-radius: var(--border-radius-1);
+	font-size: 0.88rem;
+	margin-top: 2rem;
+}
+
+#state-div,
+#province-div {
+	display: none;
+}
+
+.svg-container {
+	position: absolute;
+	z-index: 0;
+	text-align: center;
+	top: 0;
+	left: 0;
+	position: absolute;
+	height: 100vh;
+	width : 100vw;
+}
+
+.svg-container svg {
+	width: 75%;
+}
+
+.svg-container svg path:hover {
+	opacity: 50%;
+	cursor: pointer;
+}

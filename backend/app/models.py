@@ -16,6 +16,10 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship
 from .database import Base
 
+# ------------------#
+# ------ USER ------#
+# ------------------#
+
 
 class User(Base):
     __tablename__ = "users"
@@ -54,6 +58,40 @@ class User_Address(Base):
     users = relationship("User", back_populates="addresses")
 
 
+# ----------------------#
+# ------ PRODUCTS ------#
+# ----------------------#
+
+
+class Product(Base):
+    __tablename__ = "products"
+    id = Column(Integer, primary_key="True", nullable=False)
+    name = Column(String, nullable=False)
+    description = Column(String, nullable=False)
+    category_id = Column(Integer, ForeignKey("categories.id"), nullable=False)
+    discount_id = Column(Integer, ForeignKey("discounts.id"), nullable=False)
+    price = Column(Float, nullable=False)
+    created_at = Column(
+        TIMESTAMP(timezone=True), nullable=False, server_default=text("now()")
+    )
+
+
+class Course(Base):
+    __tablename__ = "courses"
+
+    id = Column(Integer, primary_key="True", nullable=False)
+    name = Column(String, nullable=False)
+    price = Column(Float, nullable=False)
+    pdf = Column(String, nullable=False)
+    video = Column(String, nullable=False)
+    description = Column(String, nullable=False)
+    photo = Column(String, nullable=False)
+    created_at = Column(
+        TIMESTAMP(timezone=True), nullable=False, server_default=text("now()")
+    )
+    users = relationship("User_Course", back_populates="courses")
+
+
 class Category(Base):
     __tablename__ = "categories"
     id = Column(Integer, primary_key="True", nullable=False)
@@ -76,17 +114,19 @@ class Discount(Base):
     )
 
 
-class Product(Base):
-    __tablename__ = "products"
+class Order(Base):
+    __tablename__ = "orders"
     id = Column(Integer, primary_key="True", nullable=False)
-    name = Column(String, nullable=False)
-    description = Column(String, nullable=False)
-    category_id = Column(Integer, ForeignKey("categories.id"), nullable=False)
-    discount_id = Column(Integer, ForeignKey("discounts.id"), nullable=False)
-    price = Column(Float, nullable=False)
+    status = Column(Boolean, nullable=False)
+    product = Column(Integer, ForeignKey("products.id"), nullable=False)
     created_at = Column(
         TIMESTAMP(timezone=True), nullable=False, server_default=text("now()")
     )
+
+
+# -------------------#
+# ------ FORMS ------#
+# -------------------#
 
 
 class Form(Base):
@@ -101,44 +141,21 @@ class Form(Base):
     users = relationship("User_Form", back_populates="forms")
 
 
-class Course(Base):
-    __tablename__ = "courses"
+# ---------------------------------#
+# ------ PUBLIC NOTICE BOARD ------#
+# ---------------------------------#
+
+
+class Notice(Base):
+    __tablename__ = "notices"
 
     id = Column(Integer, primary_key="True", nullable=False)
-    name = Column(String, nullable=False)
-    price = Column(Float, nullable=False)
-    pdf = Column(String, nullable=False)
-    video = Column(String, nullable=False)
-    description = Column(String, nullable=False)
-    photo = Column(String, nullable=False)
-    created_at = Column(
-        TIMESTAMP(timezone=True), nullable=False, server_default=text("now()")
-    )
-    users = relationship("User_Course", back_populates="courses")
+    user = Column(String, ForeignKey("users.id"), nullable=False)
 
 
-class Membership(Base):
-    __tablename__ = "memberships"
-
-    id = Column(Integer, primary_key="True", nullable=False)
-    price = Column(String, nullable=False)
-    modules = Column(Integer, nullable=False)
-    meetings = Column(Integer, nullable=False)
-    vault_price = Column(Float, nullable=False)
-    discount = Column(Integer, nullable=False)
-    created_at = Column(
-        TIMESTAMP(timezone=True), nullable=False, server_default=text("now()")
-    )
-
-
-class Order(Base):
-    __tablename__ = "orders"
-    id = Column(Integer, primary_key="True", nullable=False)
-    status = Column(Boolean, nullable=False)
-    product = Column(Integer, ForeignKey("product.id"), nullable=False)
-    created_at = Column(
-        TIMESTAMP(timezone=True), nullable=False, server_default=text("now()")
-    )
+# -------------------------#
+# ------ ASSOCIATION ------#
+# -------------------------#
 
 
 class User_Course(Base):

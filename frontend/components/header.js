@@ -64,6 +64,7 @@ class Header extends HTMLElement {
 
 					<div class="icon-container">
 						<i class="nav-icon fa-xl fa-regular fa-user"></i>
+						<a href="../pages/public-notice-board.html"><i class="nav-icon fa-xl fa-solid fa-newspaper"></i></a>
 					</div>
 
 					<div id="menu">

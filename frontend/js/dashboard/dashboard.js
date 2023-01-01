@@ -98,6 +98,7 @@ themeToggler.forEach((item) => {
     item.querySelector('i:nth-child(1)').classList.toggle('active');
   });
 });
+
 /*Orders.forEach((order) => {*/
 /*const tr = document.createElement('tr');*/
 /*const trContent = `*/

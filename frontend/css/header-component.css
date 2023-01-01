@@ -129,6 +129,7 @@ nav ul li .dropdown a:hover {
 	width: 4.2rem;
 	cursor: pointer;
 	border-radius: var(--border-radius-1);
+	margin-right: 15%;
 }
 
 .user-menu .theme-toggler i {
@@ -153,12 +154,11 @@ nav ul li .dropdown a:hover {
 	position: absolute;
 	height: auto;
 	margin-right: 1%;
-	text-align: right;
 }
 
 .nav-icon {
 	color: var(--color-dark);
-	width: 100%;
+	width: 50%;
 }
 
 

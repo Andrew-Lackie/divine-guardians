@@ -2,9 +2,9 @@ from datetime import datetime
 from pydantic import BaseModel, EmailStr
 from typing import Optional
 
-######################
+#######################
 # --- User Schemas ---#
-######################
+#######################
 
 
 class UserBase(BaseModel):

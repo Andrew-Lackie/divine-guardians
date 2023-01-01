@@ -212,7 +212,6 @@ aside .sidebar button i {
 aside .sidebar button:last-child {
 	position: absolute;
 	bottom: 2rem;
-	width: 100%;
 }
 
 aside .sidebar button.active{
@@ -381,6 +380,7 @@ main .recent-orders {
 }
 
 main .recent-orders table {
+	margin-top: 1rem;
 	background: var(--color-white);
 	width: 100%;
 	border-radius: var(--card-border-radius);
@@ -471,6 +471,329 @@ main .memberships > button:hover {
 
 main .memberships > div:hover {
 	box-shadow: none;
+}
+
+/* ================ PUBLIC NOTICE BOARD ================*/
+
+main .notice-form {
+	align-items: center;
+	margin-top: 1rem;
+	margin-bottom: 2rem;
+	background: var(--color-white);
+	width: 100%;
+	border-radius: var(--card-border-radius);
+	padding: var(--card-padding);
+	text-align: center;
+	box-shadow: var(--box-shadow);
+	transition: all 300ms ease;
+}
+
+main .notice-form .notice-details {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: auto auto auto;
+	column-gap: 1rem;
+	row-gap: 1rem;
+	margin-bottom: 1rem;
+}
+
+main .notice-form .notice-details #notice-name {
+	grid-row-start: 1;
+	grid-row-end: 2;
+	grid-column-start: 1;
+	grid-column-end: 2;
+	font-family: poppins, sans-serif;
+	color: var(--color-dark);
+	background: var(--color-light);
+	padding: 0.5rem 1rem 0.5rem 1rem;
+	cursor: pointer;
+	border-radius: var(--border-radius-1);
+	font-size: 0.88rem;
+
+}
+
+main .notice-form .notice-details .file-upload {
+	grid-row-start: 1;
+	grid-row-end: 2;
+	grid-column-start: 2;
+	grid-column-end: 3;
+	margin-top: 2%;
+}
+
+main .notice-form .notice-details #notice-region {
+	grid-row-start: 2;
+	grid-row-end: 3;
+	grid-column-start: 1;
+	grid-column-end: 2;
+}
+
+main .notice-form .notice-details #notice-category {
+	grid-row-start: 2;
+	grid-row-end: 3;
+	grid-column-start: 2;
+	grid-column-end: 3;
+}
+
+main .notice-form .notice-details #expiry-date {
+	grid-row-start: 3;
+	grid-row-end: 4;
+	grid-column-start: 1;
+	grid-column-end: 3;
+	margin-top: 0;
+	font-family: poppins, sans-serif;
+	color: var(--color-dark);
+	font-size: 0.88rem;
+}
+
+main .notice-form .notice-details #expiry-date #expiry-text {
+	margin-right: 1rem;
+}
+
+main .notice-form .notice-details .input-field {
+	background: transparent;
+	width: 100%;
+	font-family: poppins, sans-serif;
+	color: var(--color-dark);
+	font-size: 0.88rem;
+}
+
+main .notice-form:hover {
+}
+
+main .notice-form .file-upload {
+	justify-self: center;
+}
+
+main .notice-form .file-upload label {
+  background-color: var(--color-dark);
+  color: var(--color-white);
+  padding: 0.5rem;
+  border-radius: var(--border-radius-1);
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+main .notice-form > input {
+	font-family: poppins, sans-serif;
+	color: var(--color-white);
+	background: var(--color-dark);
+	padding: 0.5rem 1rem 0.5rem 1rem;
+	cursor: pointer;
+	border-radius: var(--border-radius-1);
+	font-size: 0.88rem;
+}
+
+main .notice-form:hover {
+	box-shadow: none;
+}
+
+.select-dropdown,
+.select-dropdown * {
+  margin: 0;
+  padding: 0;
+  position: relative;
+  box-sizing: border-box;
+}
+.select-dropdown {
+	background: var(--color-light);
+	border-radius: var(--border-radius-1);
+}
+
+.select-dropdown:not(:first-child) {
+	margin-top: 1rem;
+}
+
+.select-dropdown select {
+	font-family: poppins, sans-serif;
+	color: var(--color-dark);
+	background: var(--color-light);
+	padding: 0.5rem 1rem 0.5rem 1rem;
+	cursor: pointer;
+	width: 100%;
+	font-size: 0.88rem;
+  border: none;
+  background-color: transparent;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+  appearance: none;
+}
+.select-dropdown select:active, .select-dropdown select:focus {
+  outline: none;
+  box-shadow: none;
+}
+.select-dropdown:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 8px;
+  width: 0;
+  height: 0;
+  margin-top: -2px;
+  border-top: 5px solid #aaa;
+  border-right: 5px solid transparent;
+  border-left: 5px solid transparent;
+}
+
+#province-div,
+#state-div {
+	display: none;
+}
+
+
+/* ================ FORMS ================*/
+
+/* Style the recent documents */
+main .recent-docs {
+	margin-top: 2rem;
+}
+
+main .recent-docs {
+	margin-bottom: 0.8rem;
+}
+
+main .tabcontent {
+	margin-bottom: 2rem;
+}
+
+main .recent-docs table {
+	margin-top: 1rem;
+	background: var(--color-white);
+	width: 100%;
+	border-radius: var(--card-border-radius);
+	padding: var(--card-padding);
+	text-align: center;
+	box-shadow: var(--box-shadow);
+	transition: all 300ms ease;
+}
+
+main .recent-docs table:hover {
+	box-shadow: none;
+}
+
+main .recent-docs a {
+	text-align: center;
+	display: block;
+	margin: 1rem auto;
+	color: var(--color-primary);
+}
+
+ /* Style the tab */
+main .tabs {
+	display: flex;
+	justify-content: space-evenly;
+	margin-top: 1rem;
+	height: 3rem;
+  overflow: hidden;
+  border-radius: var(--border-radius-1);
+  background: var(--color-light);;
+}
+
+/* Style the buttons that are used to open the tab content */
+main .tabs button {
+	width: 100%;
+	height: 3rem;
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+}
+
+/* Change background color of buttons on hover */
+main .tabs button:hover {
+  background-color: var(--color-white);
+}
+
+/* Create an active/current tablink class */
+main .tabs button.active {
+  background-color: var(--color-white);
+}
+
+/* Style the tab content */
+main .tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border-top: none;
+}
+
+main .form-selection {
+	margin-top: 1rem;
+	display: flex;
+	justify-content: space-evenly;
+}
+
+main .form-selection label {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 1rem;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+main .form-selection label input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  border-radius: var(--border-radius-1);
+  background-color: var(--color-white);
+}
+
+/* On mouse-over, add a grey background color */
+main .form-selection label:hover input ~ .checkmark {
+  background-color: var(--color-light);
+}
+
+/* When the checkbox is checked, add a blue background */
+main .form-selection label input:checked ~ .checkmark {
+  background-color: var(--color-blue);
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+main .form-selection label input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+main .form-selection label .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid var(--color-white);
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.tabcontent .form {
+	display: none;
 }
 
 /* ================= MAIN ================*/

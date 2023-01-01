@@ -5,6 +5,7 @@
 	<meta charset="UTF-8" content="width=device-width, initial-scale=1">
 	<script src="https://kit.fontawesome.com/052b886eac.js" crossorigin="anonymous"></script>
 	<script src="https://js.stripe.com/v3/"></script>
+	<script src="../components/country-state.js"></script>
 
 	<title>dashboard</title>
 
@@ -352,9 +353,53 @@
 								</div>
 							</div>
 						</div>
+<!--Bottom-->
+
+						<div class="sales-analytics">
+							<h2>RESOURCES AVAILABLE</h2>
+							<div class="item online">
+								<div class="icon">
+									<i class="fa-solid fa-person"></i>
+								</div>
+								<div class="right">
+									<div class="info">
+										<h3>AUTOFILL DOCS</h3>
+										<small class="text-muted">Last 24 Hours</small>
+									</div>
+										<h5 class="success">15</h5>
+								</div>
+							</div>
+
+							<div class="item offline">
+								<div class="icon">
+									<i class="fa-solid fa-percent"></i>
+								</div>
+								<div class="right">
+									<div class="info">
+										<h3>PUBLIC NOTICES</h3>
+										<small class="text-muted">Last 24 Hours</small>
+									</div>
+									<div class="discount-container">
+										<h5 class="warning">4</h5>
+								</div>
+								</div>
+							</div>
+
+							<div class="item customers">
+								<div class="icon">
+									<i class="fa-solid fa-users"></i>
+								</div>
+								<div class="right">
+									<div class="info">
+										<h3>COURSES</h3>
+										<small class="text-muted">Last 24 Hours</small>
+									</div>
+									<h5 class="danger">0</h5>
+								</div>
+							</div>
+						</div>
+
 					</div>
-
-
 			</div>
 
 			<!------------->
@@ -502,6 +547,106 @@
 						<input type="date">
 					</div>
 
+					<div class="recent-docs">
+
+						<!--Recent Notices-->
+
+						<h2>Recent Notices</h2>
+						<table>
+							<thead>
+								<tr>
+									<th>Document Name</th>
+									<th>Document Number</th>
+									<th>Region</th>
+									<th>Date Created</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><a href="#">Summary of Ordinance</a></td>
+									<td>876869876</td>
+									<td>Winnipeg, Manitoba</td>
+									<td>2022-12-10</td>
+								</tr>
+							</tbody>
+						</table>
+						<a href="#">Show All</a>
+					</div>
+
+						<!--Archived Notices-->
+
+					<div class="recent-docs">
+
+						<h2>Archived Notices</h2>
+						<table>
+							<thead>
+								<tr>
+									<th>Document Name</th>
+									<th>Document Number</th>
+									<th>Region</th>
+									<th>Date Created</th>
+									<th>Date Removed</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><a href="#">Ficticious Business Name Statement</a></td>
+									<td>85321</td>
+									<td>Orange County, California</td>
+									<td>2022-12-10</td>
+									<td>2022-12-10</td>
+								</tr>
+							</tbody>
+						</table>
+						<a href="#">Show All</a>
+					</div>
+
+					<!--Post Notice-->
+
+					<h2>Post Notice</h2>
+
+					<form id="notice-form" class="notice-form" action="#">
+						<div class="notice-details">
+							<div id="notice-name">
+								<input type="text" id="name" class="input-field" placeholder="Document name" >
+							</div>
+							<div class="file-upload">
+								<input type="file" id="file" hidden>
+								<label for="file">Upload File</label>
+								<span id="file-chosen">No file chosen</span>
+							</div>
+							<div id="notice-region">
+								<div class="select-dropdown">
+									<country-component></country-component>
+								</div>
+								<div id="state-div" class="select-dropdown">
+									<state-component></state-component>
+								</div>
+
+								<div id="province-div" class="select-dropdown">
+									<province-component></province-component>
+								</div>
+							</div>
+							<div class="notice-category">
+								<div class="select-dropdown">
+									<select name="category" id="category">
+										<option value="category">Category</option>
+										<option value="proceeding">Court Proceeding</option>
+										<option value="forclosure">Forclosure-Notice</option>
+										<option value="taxation">Public Finance and Taxation</option>
+										<option value="procurement">Purchasing and Procurement</option>
+									</select>
+								</div>
+							</div>
+							<div id="expiry-date" class="date">
+								<span id="expiry-text">Expiry Date:</span>
+								<input id="date" type="date">
+							</div>
+						</div>
+
+  					<input id="form-submit" class="form-submit" type="submit">
+					</form>
+
 				</main>
 					<div class="right">
 						<div class="top">
@@ -522,9 +667,53 @@
 								</div>
 							</div>
 						</div>
+
+						<!--Bottom-->
+
+						<div class="sales-analytics">
+							<h2>Analytics</h2>
+							<div class="item online">
+								<div class="icon">
+									<i class="fa-solid fa-person"></i>
+								</div>
+								<div class="right">
+									<div class="info">
+										<h3>PUBLIC NOTICES</h3>
+										<small class="text-muted">Last 24 Hours</small>
+									</div>
+									<h3>5</h3>
+								</div>
+							</div>
+
+							<div class="item offline">
+								<div class="icon">
+									<i class="fa-solid fa-percent"></i>
+								</div>
+								<div class="right">
+									<div class="info">
+										<h3>ARCHIVED NOTICES</h3>
+										<small class="text-muted">Last 24 Hours</small>
+									</div>
+									<div class="discount-container">
+										<h3>6</h3>
+								</div>
+								</div>
+							</div>
+
+							<div class="item customers">
+								<div class="icon">
+									<i class="fa-solid fa-users"></i>
+								</div>
+								<div class="right">
+									<div class="info">
+										<h3>CREDIT</h3>
+										<small class="text-muted">Last 24 Hours</small>
+									</div>
+									<h5 class="success">15</h5>
+								</div>
+							</div>
+						</div>
 					</div>
-
-
 			</div>
 
 			<!----------->
@@ -540,8 +729,180 @@
 						<input type="date">
 					</div>
 
+					<div class="recent-docs">
+
+						<h2>Recent Documents</h2>
+						<table>
+							<thead>
+								<tr>
+									<th>Document Name</th>
+									<th>Document Number</th>
+									<th>Type</th>
+									<th>Issuer</th>
+									<th>Date Created</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><a href="#">Form 3949-A</a></td>
+									<td>85321</td>
+									<td>Tax</td>
+									<td>IRS</td>
+									<td>2022-12-10</td>
+								</tr>
+							</tbody>
+						</table>
+						<a href="#">Show All</a>
+					</div>
+
+
+				 <!-- Tab links -->
+
+					<h2>AutoFill Documents</h2>
+					<div class="tabs">
+						<button class="tablinks" onclick="formCategory(event, 'taxes')">Taxes</button>
+						<button class="tablinks" onclick="formCategory(event, 'notice')">Notices</button>
+						<button class="tablinks" onclick="formCategory(event, 'legal')">Legal</button>
+					</div>
+
+					<!-- Tab content -->
+
+					<!-- Selection -->
+				<div id="taxes" class="tabcontent">
+					<form class="form-selection" action="#">
+						<label>Form 56
+							<input class="form-checkbox" type="checkbox" onchange="formSelector(event, 'form-56')">
+							<span class="checkmark"></span>
+						</label>
+
+						<label>W-4
+							<input class="form-checkbox" type="checkbox" onchange="formSelector(event, 'w-4')">
+							<span class="checkmark"></span>
+						</label>
+
+						<label>Form 8971
+							<input class="form-checkbox" type="checkbox" onchange="formSelector(event, 'form-8971')">
+							<span class="checkmark"></span>
+						</label>
+
+						<label>Form 3949-A
+							<input class="form-checkbox" type="checkbox" onchange="formSelector(event, 'form-3949-a')">
+							<span class="checkmark"></span>
+						</label>
+					</form>
+
+					<form action="#">
+
+						<!--Common fields-->
+
+						<div class="common-fields">
+							<div>
+								<input type="text" id="fname" class="input-field" placeholder="First name" >
+								<span class="error-message"></span>
+							</div>
+							<div>
+								<input type="text" id="mname" class="input-field" placeholder="Middle name" >
+								<span class="error-message"></span>
+							</div>
+							<div>
+								<input type="text" id="lname" class="input-field" placeholder="Surname" >
+								<span class="error-message"></span>
+							</div>
+							<div>
+								<input type="text" id="dob" class="input-field" placeholder="Date of birth" >
+								<span class="error-message"></span>
+							</div>
+							<div>
+								<input type="text" id="email" class="input-field" placeholder="Email address" >
+								<span class="error-message"></span>
+							</div>
+							<div>
+								<input type="text" id="occupation" class="input-field" placeholder="Occupation" >
+								<span class="error-message"></span>
+							</div>
+							<div>
+								<input type="text" id="ssn" class="input-field" placeholder="Social Security Number (SSN)" >
+								<span class="error-message"></span>
+							</div>
+							<div>
+								<input type="text" id="city" class="input-field" placeholder="City" >
+								<span class="error-message"></span>
+							</div>
+							<div>
+								<input type="text" id="state" class="input-field" placeholder="State" >
+								<span class="error-message"></span>
+							</div>
+							<div>
+								<input type="text" id="zip" class="input-field" placeholder="ZIP code" >
+								<span class="error-message"></span>
+							</div>
+							<div>
+								<input type="text" id="room" class="input-field" placeholder="Room or suite number" >
+								<span class="error-message"></span>
+							</div>
+						</div>
+
+
+						<!--Form for Form 56-->
+
+						<div class="form" id="form-56">
+							<span class="error-message" id="email-error"></span>
+							<div>
+								<input type="text" id="fname" class="input-field" placeholder="Form 56" >
+								<span class="error-message"></span>
+							</div>
+						</div>
+
+						<!--Form for W-4-->
+
+						<div class="form" id="w-4">
+							<span class="error-message" id="email-error"></span>
+							<div>
+								<input type="text" id="fname" class="input-field" placeholder="W-4" >
+								<span class="error-message"></span>
+							</div>
+						</div>
+
+						<!--Form for Form 8971-->
+
+						<div class="form" id="form-8971">
+							<span class="error-message" id="email-error"></span>
+							<div>
+								<input type="text" id="fname" class="input-field" placeholder="Form 8971" >
+								<span class="error-message"></span>
+							</div>
+						</div>
+
+						<!--Form for Form 3949-A-->
+
+						<div class="form" id="form-3949-a">
+							<span class="error-message" id="email-error"></span>
+							<div>
+								<input type="text" id="fname" class="input-field" placeholder="Form 3949-A" >
+								<span class="error-message"></span>
+							</div>
+						</div>
+
+					</form>
+				</div>
+
+					<div id="notices" class="tabcontent">
+						<h3>Notices</h3>
+					</div>
+
+					<div id="legal" class="tabcontent">
+						<h3>Legal</h3>
+
+					</div>
+
 				</main>
+
+				<!--Right-->
+
 					<div class="right">
+
+						<!--Top-->
+
 						<div class="top">
 							<button id="menu-btn">
 								<i class="fa-solid fa-bars"></i>
@@ -560,9 +921,53 @@
 								</div>
 							</div>
 						</div>
+
+						<!--Bottom-->
+
+						<div class="sales-analytics">
+							<h2>Analytics</h2>
+							<div class="item online">
+								<div class="icon">
+									<i class="fa-solid fa-person"></i>
+								</div>
+								<div class="right">
+									<div class="info">
+										<h3>DOCUMENTS</h3>
+										<small class="text-muted">Last 24 Hours</small>
+									</div>
+									<h3>16</h3>
+								</div>
+							</div>
+
+							<div class="item offline">
+								<div class="icon">
+									<i class="fa-solid fa-percent"></i>
+								</div>
+								<div class="right">
+									<div class="info">
+										<h3>SUBMITTED</h3>
+										<small class="text-muted">Last 24 Hours</small>
+									</div>
+									<div class="discount-container">
+										<h3>6</h3>
+								</div>
+								</div>
+							</div>
+
+							<div class="item customers">
+								<div class="icon">
+									<i class="fa-solid fa-users"></i>
+								</div>
+								<div class="right">
+									<div class="info">
+										<h3>CREDIT</h3>
+										<small class="text-muted">Last 24 Hours</small>
+									</div>
+									<h5 class="success">15</h5>
+								</div>
+							</div>
+						</div>
 					</div>
-
-
 			</div>
 
 			<!-------------->
@@ -604,11 +1009,12 @@
 			</div>
 
 		</div>
-	</body>
-
-	<script src="../js/dashboard.js"></script>
+	<script src="../js/dashboard/public-notice-board.js"></script>
+	<script src="../js/dashboard/dashboard.js"></script>
+	<script src="../js/dashboard/forms.js"></script>
 	<script src="../js/auth.js"></script>
 	<script src="../js/init.js"></script>
 	<script src="../js/stripe.js"></script>
+	</body>
 
 </html>

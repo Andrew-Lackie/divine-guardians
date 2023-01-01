@@ -21,68 +21,68 @@
 
 		<header-component></header-component>
 
-				<div class="form-box">
+			<div class="form-box">
 
-			<div class="button-box">
+				<div class="button-box">
 
-				<div id="btn"></div>
+					<div id="btn"></div>
 
-				<button type="button" class="toggle-btn" id="login-toggle-btn">Login</button>
-				<button type="button" class="toggle-btn" id="register-toggle-btn">Join</button>
+					<button type="button" class="toggle-btn" id="login-toggle-btn">Login</button>
+					<button type="button" class="toggle-btn" id="register-toggle-btn">Join</button>
+
+				</div>
+
+				<form action="../pages/registered.html" id="register" class="input-group">
+					<span class="error-message" id="email-error"></span>
+					<div>
+						<input type="text" id="fname" class="input-field" placeholder="Legal first name" >
+						<span class="error-message"></span>
+					</div>
+					<div>
+						<input type="text" id="lname" class="input-field" placeholder="Legal surname" >
+						<span class="error-message"></span>
+					</div>
+
+					<div>
+						<input type="email" id="new-email" class="input-field" placeholder="Email" >
+						<span class="error-message"></span>
+					</div>
+
+					<div>
+						<input type="text" id="new-username" class="input-field" placeholder="Username" >
+						<span class="error-message"></span>
+					</div>
+
+					<div>
+						<input type="password" id="new-password" class="password input-field" placeholder="Password" >
+						<span class="error-message"></span>
+					</div>
+					<div>
+						<input type="password" id="confirm-password" class="password input-field" placeholder="Confirm Password" >
+						<button type="button" id="reg-eye" class="show-password"><i class="icon fa-solid fa-eye-slash"></i></button>
+						<span class="error-message"></span>
+					</div>
+					<input id="terms" class="check-box" type="checkbox"><span><a href="terms.html">Terms and Conditions</a></span>
+
+					<button type="submit" id="register-submit-btn" class="submit-btn">Register</button>
+
+				</form>
+
+				<form action="../pages/dashboard.html" id="login" class="input-group">
+					<span class="error-message" id="invalid-credentials"></span>
+					<div>
+						<input type="email" id="email" class="input-field" placeholder="Email" >
+						<span class="error-message"></span>
+					</div>
+					<div>
+						<input type="password" id="password" class="password input-field" placeholder="Password" >
+						<button type="button" id="log-eye" class="show-password"><i class="icon fa-solid fa-eye-slash"></i></button>
+						<span class="error-message"></span>
+					</div>
+					<button type="submit" id="login-submit-btn" class="submit-btn">Login</button>
+				</form>
 
 			</div>
-
-			<form action="../pages/registered.html" id="register" class="input-group">
-				<span class="error-message" id="email-error"></span>
-				<div>
-					<input type="text" id="fname" class="input-field" placeholder="Legal first name" >
-					<span class="error-message"></span>
-				</div>
-				<div>
-					<input type="text" id="lname" class="input-field" placeholder="Legal surname" >
-					<span class="error-message"></span>
-				</div>
-
-				<div>
-					<input type="email" id="new-email" class="input-field" placeholder="Email" >
-					<span class="error-message"></span>
-				</div>
-
-				<div>
-					<input type="text" id="new-username" class="input-field" placeholder="Username" >
-					<span class="error-message"></span>
-				</div>
-
-				<div>
-					<input type="password" id="new-password" class="password input-field" placeholder="Password" >
-					<span class="error-message"></span>
-				</div>
-				<div>
-					<input type="password" id="confirm-password" class="password input-field" placeholder="Confirm Password" >
-					<button type="button" id="reg-eye" class="show-password"><i class="icon fa-solid fa-eye-slash"></i></button>
-					<span class="error-message"></span>
-				</div>
-				<input id="terms" class="check-box" type="checkbox"><span><a href="terms.html">Terms and Conditions</a></span>
-
-				<button type="submit" id="register-submit-btn" class="submit-btn">Register</button>
-
-			</form>
-
-			<form action="../pages/dashboard.html" id="login" class="input-group">
-				<span class="error-message" id="invalid-credentials"></span>
-				<div>
-					<input type="email" id="email" class="input-field" placeholder="Email" >
-					<span class="error-message"></span>
-				</div>
-				<div>
-					<input type="password" id="password" class="password input-field" placeholder="Password" >
-					<button type="button" id="log-eye" class="show-password"><i class="icon fa-solid fa-eye-slash"></i></button>
-					<span class="error-message"></span>
-				</div>
-				<button type="submit" id="login-submit-btn" class="submit-btn">Login</button>
-			</form>
-
-		</div>
 
 	</section>
 	<script src="../js/loginPage.js"></script>
